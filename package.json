@@ -1,0 +1,11 @@
+{
+  "name": "reporter-web-view",
+  "version": "0.1.0",
+  "description": "Web view for reporter web-server which give you possibility to look at your users errors fires on your pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gafiatullin Albert",
+  "license": "ISC"
+}

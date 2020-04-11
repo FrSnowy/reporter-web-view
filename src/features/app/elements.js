@@ -6,4 +6,5 @@ export const AppContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
 `;

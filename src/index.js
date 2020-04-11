@@ -3,9 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import configureStore from './config/store';
-import * as serviceWorker from './serviceWorker';
+import themes from './config/themes/';
 import App from './features/app';
+import * as serviceWorker from './serviceWorker';
 
 const store = configureStore();
 
@@ -14,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <React.StrictMode>
       <Provider store = {store}>
         <BrowserRouter>
-          <App />
+          <ThemeProvider theme={themes.light}>
+            <App />
+          </ThemeProvider>
         </BrowserRouter>
       </Provider>
     </React.StrictMode>,

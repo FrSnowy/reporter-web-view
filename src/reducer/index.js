@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import * as auth from '../features/auth/duck';
 
 export default () =>
 	combineReducers({
-		routing: routerReducer,
+		auth: auth.reducer,
 	});

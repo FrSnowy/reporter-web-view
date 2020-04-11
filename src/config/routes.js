@@ -11,9 +11,7 @@ let generatedRoutes = [];
 
 const generateRoutes = () => routes.map((route, i) =>
   <Switch>
-    <Route path = {route.path} exact>
-      {route.component}
-    </Route>
+    <Route path = {route.path} exact key = {i} component={route.component} />
   </Switch>
 )
 

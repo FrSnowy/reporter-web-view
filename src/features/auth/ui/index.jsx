@@ -5,7 +5,7 @@ import Input from '../../shared/Input';
 import Icon from '../../shared/Icon';
 import Button from '../../shared/Button';
 
-const AuthView = ({ login, password, isButtonEnabled, changeInputValue }) =>
+const AuthView = ({ login, password, isButtonEnabled, changeInputValue, sendLoginRequest }) =>
   <AuthContainer>
     <AuthInnerContainer>
       <Title>Авторизация</Title>
@@ -36,7 +36,10 @@ const AuthView = ({ login, password, isButtonEnabled, changeInputValue }) =>
           />
         </AuthInputWrapper>
         <AuthButtonWrapper>
-          <Button state = {isButtonEnabled ? 'default' : 'disabled'}>
+          <Button
+            state = {isButtonEnabled ? 'default' : 'disabled'}
+            onClick = {() => sendLoginRequest(login, password)}
+          >
             Войти
           </Button>
         </AuthButtonWrapper>

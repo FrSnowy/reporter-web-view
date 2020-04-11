@@ -1,5 +1,8 @@
 import { handleActions } from 'redux-actions';
-import { changeInputValue } from './actions';
+import {
+  changeInputValue,
+  loginAction,
+} from './actions';
 
 const initialState = {
   pending: false,
@@ -25,7 +28,19 @@ export default handleActions(
         ...state.button,
         enabled: payload.buttonEnabled,
       }
-		}),
+    }),
+    [loginAction.started]: state => ({
+      ...state,
+      pending: true,
+    }),
+    [loginAction.success]: (state, { payload }) => ({
+      ...state,
+      pending: false,
+    }),
+    [loginAction.failure]: state => ({
+      ...state,
+      pending: false,
+    }),
 	},
 	initialState,
 );

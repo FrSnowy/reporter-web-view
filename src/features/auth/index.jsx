@@ -12,8 +12,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch);
 
-const AuthController = ({ login, password, isButtonEnabled, changeInputValue }) =>
-  <AuthView login = {login} password = {password} isButtonEnabled = {isButtonEnabled} changeInputValue = {changeInputValue} />
+const AuthController = ({ login, password, isButtonEnabled, changeInputValue, sendLoginRequest }) =>
+  <AuthView
+    login = {login}
+    password = {password}
+    isButtonEnabled = {isButtonEnabled}
+    changeInputValue = {changeInputValue}
+    sendLoginRequest = {sendLoginRequest}
+  />
 
 export default connect(
   mapStateToProps,

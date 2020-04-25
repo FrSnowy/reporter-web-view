@@ -1,11 +1,12 @@
 import React from 'react';
-import { AuthContainer, AuthInnerContainer, AuthCard, AuthTitleTextContainer, AuthInputWrapper, AuthIconWrapper, AuthButtonWrapper } from './elements';
+import { AuthContainer, AuthInnerContainer, AuthCard, AuthTitleTextContainer, AuthInputWrapper, AuthIconWrapper, AuthButtonWrapper, RegisterLinkWrapper } from './elements';
 import { Title, Text } from '../../shared/elements';
 import Input from '../../shared/Input';
 import Icon from '../../shared/Icon';
 import Button from '../../shared/Button';
+import PseudoLink from '../../shared/PseudoLink';
 
-const AuthView = ({ login, password, isButtonEnabled, changeInputValue, sendLoginRequest }) =>
+const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInputValue, sendLoginRequest, sendRegisterRequest }) =>
   <AuthContainer>
     <AuthInnerContainer>
       <Title>Авторизация</Title>
@@ -18,31 +19,40 @@ const AuthView = ({ login, password, isButtonEnabled, changeInputValue, sendLogi
         </AuthIconWrapper>
         <AuthInputWrapper>
           <Input
-            title = 'Логин'
-            placeholder = 'Логин для авторизации'
             required
+            title = 'Логин'
             value = {login}
+            error = {error.login}
+            placeholder = 'Логин для авторизации'
             onChange = {value => changeInputValue({ login: value, password })}
           />
         </AuthInputWrapper>
         <AuthInputWrapper>
           <Input
-            title = 'Пароль'
-            placeholder = 'Пароль для авторизации'
-            type = 'password'
             required
+            title = 'Пароль'
+            type = 'password'
             value = {password}
+            placeholder = 'Пароль для авторизации'
             onChange = {value => changeInputValue({ login, password: value })}
           />
         </AuthInputWrapper>
         <AuthButtonWrapper>
           <Button
-            state = {isButtonEnabled ? 'default' : 'disabled'}
+            state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}
             onClick = {() => sendLoginRequest(login, password)}
           >
             Войти
           </Button>
         </AuthButtonWrapper>
+        <RegisterLinkWrapper>
+          <PseudoLink
+            state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}
+            onClick = {() => sendRegisterRequest(login, password)
+          }>
+            Создать аккаунт из введенных данных
+          </PseudoLink>
+        </RegisterLinkWrapper>
       </AuthCard>
     </AuthInnerContainer>
   </AuthContainer>

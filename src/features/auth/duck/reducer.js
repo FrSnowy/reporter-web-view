@@ -2,17 +2,19 @@ import { handleActions } from 'redux-actions';
 import {
   changeInputValue,
   loginAction,
+  registerAction,
 } from './actions';
 
 const initialState = {
   pending: false,
+  error: null,
   input: {
     login: null,
     password: null,
   },
   button: {
     enabled: false,
-  }
+  },
 };
 
 export default handleActions(
@@ -33,13 +35,27 @@ export default handleActions(
       ...state,
       pending: true,
     }),
-    [loginAction.success]: (state, { payload }) => ({
+    [loginAction.success]: state => ({
       ...state,
       pending: false,
     }),
     [loginAction.failure]: state => ({
       ...state,
       pending: false,
+    }),
+    [registerAction.started]: state => ({
+      ...state,
+      pending: true,
+    }),
+    [registerAction.success]: state => ({
+      ...state,
+      pending: false,
+      error: null,
+    }),
+    [registerAction.failure]: (state, { payload }) => ({
+      ...state,
+      pending: false,
+      error: { login: payload.error },
     }),
 	},
 	initialState,

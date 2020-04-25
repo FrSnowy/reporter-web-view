@@ -9,10 +9,10 @@ export const AuthContainer = styled(Container)`
   width: 100%;
   height: 100vh;
   background: ${props => `linear-gradient(
-    -45deg,
+    -51deg,
     ${getColor('accent', 100, props.theme)} 0%,
-    ${getColor('accent', 100, props.theme)} 50%,
-    ${getColor('page-background', 100, props.theme)} 50.001%,
+    ${getColor('accent', 100, props.theme)} calc(50% - 31px),
+    ${getColor('page-background', 100, props.theme)} calc(50% - 30px),
     ${getColor('page-background', 100, props.theme)} 100%
   )`};
   
@@ -52,4 +52,12 @@ export const AuthInputWrapper = styled.div`
 export const AuthButtonWrapper = styled.div`
   width: 100%;
   margin: 16px 0;
+`;
+
+export const RegisterLinkWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
 `;

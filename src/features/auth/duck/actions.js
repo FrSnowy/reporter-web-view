@@ -17,10 +17,33 @@ export const sendLoginRequest = (login, password) => async dispatch => {
 
   try {
     const res = await api.login(login, password);
-    console.log(res);
     action.success({ res });
   } catch (e) {
     console.log(e);
     action.failure();
+  }
+}
+
+export const registerAction = createAsyncAction(actionTypes.REGISTER);
+export const sendRegisterRequest = (login, password) => async dispatch => {
+  const action = bindActionCreators(registerAction, dispatch);
+  action.started();
+
+  try {
+    const res = await api.register(login, password);
+    if (res.status === 'Error') {
+      switch (res.response) {
+        case 'Login is busy':
+          action.failure({ error: 'Этот логин занят' });
+          break;
+        default:
+          action.failure({ error: res.response });
+          break;
+      }
+    }
+    else action.success({ res });
+  } catch (e) {
+    console.log(e);
+    action.failure({ error: e.message });
   }
 }

@@ -102,7 +102,7 @@ export const Error = styled.div`
   position: absolute;
   top: calc(100% + 2px);
   left: 0;
-  color: ${props => getColor('wrong', 60, props.theme)};
+  color: ${props => getColor('wrong', 90, props.theme)};
   font-size: 12px;
   line-height: 17px;
   padding: 0 16px;

@@ -5,21 +5,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = state => ({
+  pending: duck.selectors.pending(state),
   login: duck.selectors.loginInputValue(state),
   password: duck.selectors.passwordInputValue(state),
   isButtonEnabled: duck.selectors.isButtonEnabled(state),
+  error: duck.selectors.error(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch);
 
-const AuthController = ({ login, password, isButtonEnabled, changeInputValue, sendLoginRequest }) =>
-  <AuthView
-    login = {login}
-    password = {password}
-    isButtonEnabled = {isButtonEnabled}
-    changeInputValue = {changeInputValue}
-    sendLoginRequest = {sendLoginRequest}
-  />
+const AuthController = props => <AuthView {...props} />
 
 export default connect(
   mapStateToProps,

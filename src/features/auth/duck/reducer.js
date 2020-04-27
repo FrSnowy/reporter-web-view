@@ -3,12 +3,9 @@ import {
   changeInputValue,
   loginAction,
   registerAction,
-  autoLoginAction,
 } from './actions';
 
 const initialState = {
-  isLoggedIn: false,
-  token: null,
   pending: false,
   error: null,
   input: {
@@ -62,22 +59,6 @@ export default handleActions(
       pending: false,
       error: { login: payload.error },
     }),
-    [autoLoginAction.started]: state => ({
-      ...state,
-      pending: true,
-    }),
-    [autoLoginAction.failure]: state => ({
-      ...state,
-      pending: false,
-      isLoggedIn: false,
-      token: null,
-    }),
-    [autoLoginAction.success]: (state, { payload }) => ({
-      ...state,
-      pending: false,
-      isLoggedIn: true,
-      token: payload.token,
-    })
 	},
 	initialState,
 );

@@ -1,9 +1,3 @@
-export const isUserLoggedIn = state => {
-  console.log(state);
-  const { isLoggedIn = false } = state.auth;
-  return isLoggedIn;
-}
-
 export const loginInputValue = state => {
   const { login = '' } = state.auth.input;
   return login || '';

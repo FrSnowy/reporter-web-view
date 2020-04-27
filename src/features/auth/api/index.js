@@ -19,12 +19,3 @@ export const register = async (login, password) => {
   );
   return response.data;
 };
-
-export const isAuthTokenCorrect = async token => {
-  const response = await axios.get(
-    `${pathes.backend}/${pathes.namespace}/user/token_correct?token=${token}`,
-    { withCredentials: true }
-  );
-
-  return response.data;
-}

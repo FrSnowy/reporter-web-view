@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AuthView from './ui';
 import * as duck from './duck';
+import * as appDuck from '../app/duck';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = state => ({
   pending: duck.selectors.pending(state),
-  isLoggedIn: duck.selectors.isUserLoggedIn(state),
   login: duck.selectors.loginInputValue(state),
   password: duck.selectors.passwordInputValue(state),
   isButtonEnabled: duck.selectors.isButtonEnabled(state),
   error: duck.selectors.error(state),
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({...duck.actions, ...appDuck.actions }, dispatch);
 
-const AuthController = props => {
-  useState(() => {
-    props.autoLoginIfCookiePresent();
-  }, []);
-
-  return <AuthView {...props} />
+class AuthController extends React.Component {
+  async componentDidMount() {
+    const isAlreadyLoggedIn = await this.props.isLoggedIn();
+    if (isAlreadyLoggedIn) window.location.href = '/';
+  }
+  render() {
+    const { pending } = this.props;
+    return pending ? null : <AuthView {...this.props} />
+  }
 }
 
 export default connect(

@@ -1,20 +1,30 @@
 import axios from 'axios'
+import pathes from '../../../config/pathes'
 
 export const login = async (login, password) => {
   const response = await axios.get(
-    `http://localhost:5000/api/v1/auth?login=${login}&password=${password}`,
-    { withCredentials: false }
+    `${pathes.backend}/${pathes.namespace}/user/auth?login=${login}&password=${password}`,
+    { withCredentials: true }
   );
   return response.data;
 };
 
 export const register = async (login, password) => {
   const response = await axios.post(
-    'http://localhost:5000/api/v1/auth',
+    `${pathes.backend}/${pathes.namespace}/user/auth`,
     {
-      withCredentials: false,
+      withCredentials: true,
       body: { login, password },
     }
   );
   return response.data;
 };
+
+export const isAuthTokenCorrect = async token => {
+  const response = await axios.get(
+    `${pathes.backend}/${pathes.namespace}/user/token_correct?token=${token}`,
+    { withCredentials: true }
+  );
+
+  return response.data;
+}

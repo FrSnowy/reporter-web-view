@@ -2,7 +2,6 @@ import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import configureStore from './config/store';
 import themes from './config/themes/';
@@ -15,11 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <React.StrictMode>
       <Provider store = {store}>
-        <BrowserRouter>
-          <ThemeProvider theme={themes.light}>
-            <App />
-          </ThemeProvider>
-        </BrowserRouter>
+        <ThemeProvider theme={themes.light}>
+          <App />
+        </ThemeProvider>
       </Provider>
     </React.StrictMode>,
     document.getElementById('root')

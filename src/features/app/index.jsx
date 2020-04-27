@@ -1,16 +1,13 @@
 import React from 'react';
 import { AppContainer } from './elements';
-import { Switch } from 'react-router-dom';
+import { Switch, BrowserRouter } from 'react-router-dom';
 import getGeneratedRoutes from '../../config/routes';
 
-class App extends React.Component {
-  render() {
-    return (
-      <AppContainer>
+const App = () =>
+    <AppContainer>
+      <BrowserRouter>
         <Switch>{ getGeneratedRoutes() }</Switch>
-      </AppContainer>
-    )
-  }
-}
+      </BrowserRouter>
+    </AppContainer>
 
 export default App;

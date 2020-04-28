@@ -22,6 +22,8 @@ const checkCookieOrGoAuth = async checkFN => {
     if (!result) {
       document.cookie = 'auth-token=0; max-age=-1';
       window.location.href = '/auth';
+    } else if (window.location.pathname === '/') {
+      window.location.href = '/main';
     }
   } else {
     window.location.href = '/auth';
@@ -31,6 +33,13 @@ const checkCookieOrGoAuth = async checkFN => {
 class App extends React.Component {
   componentDidMount() {
     checkCookieOrGoAuth(this.props.isLoggedIn);
+    this.checkInterval = window.setInterval(() => {
+      checkCookieOrGoAuth(this.props.isLoggedIn);
+    }, 60000);
+  };
+
+  componentWillUnmount() {
+    window.clearInterval(this.checkInterval);
   }
 
   render() {

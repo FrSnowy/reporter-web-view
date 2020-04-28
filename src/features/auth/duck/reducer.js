@@ -35,15 +35,14 @@ export default handleActions(
       ...state,
       pending: true,
     }),
-    [loginAction.success]: (state, { payload }) => ({
+    [loginAction.success]: (state) => ({
       ...state,
-      isLoggedIn: true,
-      token: payload.token,
       pending: false,
     }),
-    [loginAction.failure]: state => ({
+    [loginAction.failure]: (state, { payload }) => ({
       ...state,
       pending: false,
+      error: payload.error,
     }),
     [registerAction.started]: state => ({
       ...state,
@@ -57,7 +56,7 @@ export default handleActions(
     [registerAction.failure]: (state, { payload }) => ({
       ...state,
       pending: false,
-      error: { login: payload.error },
+      error: payload.error,
     }),
 	},
 	initialState,

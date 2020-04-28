@@ -9,7 +9,12 @@ export const isLoggedIn = () => async dispatch => {
   action.started();
 
   try {
-    await api.isLoggedIn();
+    const res = await api.isLoggedIn();
+    if (!res.response) {
+      action.failure();
+      return false;
+    }
+    
     action.success()
     return true;
   } catch (e) {

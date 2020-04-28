@@ -61,3 +61,10 @@ export const RegisterLinkWrapper = styled.div`
   align-items: center;
   height: 24px;
 `;
+
+export const ErrorContainer = styled.div`
+  width: 100%;
+  font-size: 14px;
+  line-height: 19px;
+  color: ${props => getColor('wrong', 100, props.theme)};
+`;

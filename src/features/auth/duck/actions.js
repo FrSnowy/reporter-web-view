@@ -4,6 +4,11 @@ import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
 import { createAction } from 'redux-actions';
 
+const saveTokenToCookieAndGo = token => {
+  document.cookie = `auth-token=${token}; max-age=86400`;
+  window.location.href = '/main';
+}
+
 export const changeInputValue = createAction(actionTypes.CHANGE_INPUTS_VALUE, payload => {
   const { login, password } = payload;
   payload.buttonEnabled = !(login === '' || password === '');
@@ -17,11 +22,21 @@ export const sendLoginRequest = (login, password) => async dispatch => {
 
   try {
     const res = await api.login(login, password);
-    document.cookie = `auth-token=${res.response}; max-age=86400`;
-    action.success({ token: res.response });
+    if (res.status === 'OK') {
+      saveTokenToCookieAndGo(res.response);
+      action.success();
+    } else {
+      switch (res.response) {
+        case 'Wrong login or password':
+          action.failure({ error: 'Неверный логин или пароль' })
+          break;
+        default:
+          action.failure({ error: res.response });
+          break;
+      }
+    }
   } catch (e) {
-    console.log(e);
-    action.failure();
+    action.failure({ error: e });
   }
 }
 
@@ -32,6 +47,10 @@ export const sendRegisterRequest = (login, password) => async dispatch => {
 
   try {
     const res = await api.register(login, password);
+    if (res.status === 'OK') {
+      saveTokenToCookieAndGo(res.response);
+      action.success();
+    }
     if (res.status === 'Error') {
       switch (res.response) {
         case 'Login is busy':

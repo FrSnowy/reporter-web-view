@@ -19,9 +19,6 @@ export const pending = state => {
 }
 
 export const error = state => {
-  const { error = { } } = state.auth;
-  if (!error) return { login: false, password: false };
-  if (!error.login) error.login = false;
-  if (!error.password) error.password = false;
+  const { error = null } = state.auth;
   return error;
 }

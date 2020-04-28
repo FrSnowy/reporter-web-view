@@ -20,9 +20,9 @@ class AuthController extends React.Component {
     const isAlreadyLoggedIn = await this.props.isLoggedIn();
     if (isAlreadyLoggedIn) window.location.href = '/';
   }
+
   render() {
-    const { pending } = this.props;
-    return pending ? null : <AuthView {...this.props} />
+    return <AuthView {...this.props} />
   }
 }
 

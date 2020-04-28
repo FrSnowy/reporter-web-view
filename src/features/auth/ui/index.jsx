@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthContainer, AuthInnerContainer, AuthCard, AuthTitleTextContainer, AuthInputWrapper, AuthIconWrapper, AuthButtonWrapper, RegisterLinkWrapper } from './elements';
+import { AuthContainer, AuthInnerContainer, AuthCard, AuthTitleTextContainer, AuthInputWrapper, AuthIconWrapper, AuthButtonWrapper, RegisterLinkWrapper, ErrorContainer } from './elements';
 import { Title, Text } from '../../shared/elements';
 import Input from '../../shared/Input';
 import Icon from '../../shared/Icon';
@@ -22,7 +22,6 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
             required
             title = 'Логин'
             value = {login}
-            error = {error.login}
             placeholder = 'Логин для авторизации'
             onChange = {value => changeInputValue({ login: value, password })}
           />
@@ -37,6 +36,7 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
             onChange = {value => changeInputValue({ login, password: value })}
           />
         </AuthInputWrapper>
+        {error && <ErrorContainer>{error}</ErrorContainer>}
         <AuthButtonWrapper>
           <Button
             state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}

@@ -2,10 +2,12 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Switch, BrowserRouter } from 'react-router-dom';
+import BaseContainer from '../shared/BaseContainer';
 import getCookieValue from '../../utils/getCookieValue';
 import getGeneratedRoutes from '../../config/routes';
 import { AppContainer } from './elements';
 import * as duck from './duck';
+import Header from '../shared/Header';
 
 const mapStateToProps = state => ({
   pending: duck.selectors.pending(state),
@@ -45,9 +47,14 @@ class App extends React.Component {
   render() {
     return (
       <AppContainer>
-        <BrowserRouter>
-          <Switch>{ getGeneratedRoutes() }</Switch>
-        </BrowserRouter>
+        <BaseContainer fullWidth>
+          <Header />
+          <BaseContainer>
+            <BrowserRouter>
+              <Switch>{ getGeneratedRoutes() }</Switch>
+            </BrowserRouter>
+          </BaseContainer>
+        </BaseContainer>
       </AppContainer>
     )
   }

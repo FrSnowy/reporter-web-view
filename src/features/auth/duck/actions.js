@@ -3,6 +3,9 @@ import { bindActionCreators } from 'redux';
 import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
 import { createAction } from 'redux-actions';
+import getText from '../../shared/Text';
+
+const text = getText('AUTH');
 
 const saveTokenToCookieAndGo = token => {
   document.cookie = `auth-token=${token}; max-age=86400`;
@@ -26,17 +29,10 @@ export const sendLoginRequest = (login, password) => async dispatch => {
       saveTokenToCookieAndGo(res.response);
       action.success();
     } else {
-      switch (res.response) {
-        case 'Wrong login or password':
-          action.failure({ error: 'Неверный логин или пароль' })
-          break;
-        default:
-          action.failure({ error: res.response });
-          break;
-      }
+      action.failure({ error: text(res.response) || res.response })
     }
   } catch (e) {
-    action.failure({ error: e });
+    action.failure({ error: text(e.message) || e.message });
   }
 }
 
@@ -50,20 +46,10 @@ export const sendRegisterRequest = (login, password) => async dispatch => {
     if (res.status === 'OK') {
       saveTokenToCookieAndGo(res.response);
       action.success();
+    } else {
+      action.failure({ error: text(res.response) || res.response })
     }
-    if (res.status === 'Error') {
-      switch (res.response) {
-        case 'Login is busy':
-          action.failure({ error: 'Этот логин занят' });
-          break;
-        default:
-          action.failure({ error: res.response });
-          break;
-      }
-    }
-    else action.success({ res });
   } catch (e) {
-    console.log(e);
-    action.failure({ error: e.message });
+    action.failure({ error: text(e.message) || e.message });
   }
 }

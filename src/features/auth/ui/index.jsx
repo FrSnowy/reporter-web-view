@@ -5,14 +5,17 @@ import Input from '../../shared/Input';
 import Icon from '../../shared/Icon';
 import Button from '../../shared/Button';
 import PseudoLink from '../../shared/PseudoLink';
+import getText from '../../shared/Text';
+
+const text = getText('AUTH');
 
 const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInputValue, sendLoginRequest, sendRegisterRequest }) =>
   <AuthContainer>
     <AuthInnerContainer>
-      <Title>Авторизация</Title>
+      <Title>{text('TITLE')}</Title>
       <AuthCard>
         <AuthTitleTextContainer>
-          <Text>Войдите, чтобы продолжить</Text>
+          <Text>{text('LOGIN_TO_CONTINUE')}</Text>
         </AuthTitleTextContainer>
         <AuthIconWrapper>
           <Icon name = 'logo' />
@@ -20,19 +23,19 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
         <AuthInputWrapper>
           <Input
             required
-            title = 'Логин'
+            title = {text('INPUT_LOGIN_TITLE')}
             value = {login}
-            placeholder = 'Логин для авторизации'
+            placeholder = {text('INPUT_LOGIN_PLACEHOLDER')}
             onChange = {value => changeInputValue({ login: value, password })}
           />
         </AuthInputWrapper>
         <AuthInputWrapper>
           <Input
             required
-            title = 'Пароль'
+            title = {text('INPUT_PASSWORD_TITLE')}
             type = 'password'
             value = {password}
-            placeholder = 'Пароль для авторизации'
+            placeholder = {text('INPUT_PASSWORD_PLACEHOLDER')}
             onChange = {value => changeInputValue({ login, password: value })}
           />
         </AuthInputWrapper>
@@ -42,7 +45,7 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
             state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}
             onClick = {() => sendLoginRequest(login, password)}
           >
-            Войти
+            {text('SUBMIT_FORM_BUTTON')}
           </Button>
         </AuthButtonWrapper>
         <RegisterLinkWrapper>
@@ -50,7 +53,7 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
             state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}
             onClick = {() => sendRegisterRequest(login, password)
           }>
-            Создать аккаунт из введенных данных
+            {text('REGISTER_LINK')}
           </PseudoLink>
         </RegisterLinkWrapper>
       </AuthCard>

@@ -3,6 +3,8 @@ import { isLoggedInAction } from './actions';
 
 const initialState = {
   pending: false,
+  locale: 'ru',
+  userName: null,
 };
 
 export default handleActions(
@@ -11,9 +13,10 @@ export default handleActions(
       ...state,
       pending: true,
     }),
-    [isLoggedInAction.success]: (state) => ({
+    [isLoggedInAction.success]: (state, { payload }) => ({
       ...state,
       pending: false,
+      userName: payload.name,
     }),
     [isLoggedInAction.failure]: state => ({
       ...state,

@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: ${props => props.justify || 'center'};
   align-items: ${props => props.align || 'center'};
   position: relative;
+  top: 0;
+  left: 0;
 `;
 
 export const Title = styled.h1`

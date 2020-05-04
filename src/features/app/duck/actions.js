@@ -15,7 +15,7 @@ export const isLoggedIn = () => async dispatch => {
       return false;
     }
     
-    action.success()
+    action.success({ name: res.response })
     return true;
   } catch (e) {
     action.failure();

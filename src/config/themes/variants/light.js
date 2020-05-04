@@ -11,6 +11,9 @@ const theme = {
   'accent-opposite': '220,220,220',
   'accent-success': '20,172,78',
   'accent-disabled': '150,150,150',
+  'warning':  '239, 150, 20',
+  'warning-light': '255, 175, 16',
+  'warning-dark': '239, 131, 24',
 };
 
 export default theme;

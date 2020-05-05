@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { getColor } from '../../../../../../utils/colors';
-import getBrowserIcon from '../../../../../shared/assets/icons/browser';
-import getPlatformIcon from '../../../../../shared/assets/icons/platform';
 
 export const Container = styled.div`
   display: flex;
@@ -16,6 +14,8 @@ export const Date = styled.div`
   font-size: 13px;
   line-height: 19px;
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
 `;
 
 export const Info = styled.div`
@@ -39,10 +39,10 @@ export const Tooltip = styled.div`
   display: none;
   background: ${props => getColor('content-main', 85, props.theme)};
   transform: translateY(-100%);
+  white-space: nowrap;
 
   @media (max-width: 512px) {
-    left: auto;
-    right: 0;
+    left: 0;
     z-index: 1000;
   }
 `;
@@ -51,41 +51,31 @@ const Icon = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   margin-right: 8px;
   background-size: cover;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img { width: 14px; height: 14px };  
 
   &:hover {
     ${Tooltip} {
       display: block;
     }
   }
-
-  @media (max-width: 1023px) {
-    width: 14px;
-    height: 14px;
-  }
-
-  @media (max-width: 512px) {
-    flex: none;
-    position: absolute;
-    left: auto;
-    top: 115%;
-  }
 `;
 
 export const BrowserIcon = styled(Icon)`
-  background-image: url(${props => getBrowserIcon(props.browser)});
-
   @media (max-width: 512px) {
     right: 0;
   }
 `;
 
 export const PlatformIcon = styled(Icon)`
-  background-image: url(${props => getPlatformIcon(props.platform)});
-
   @media (max-width: 512px) {
     right: 24px;
   }
@@ -99,20 +89,26 @@ export const ErrorContainer = styled.div`
   color: ${props => getColor('wrong', 100, props.theme)};
   font-size: 13px;
   line-height: 19px;
-  max-width: 300px;
   text-overflow: ellipsis;
   overflow: hidden;
   box-sizing: border-box;
   word-break: unset;
   white-space: nowrap;
+  width: 498px;
+  border: 1px solid rgba(200, 50, 50, 1);
+  margin-right: 8px;
+  border-radius: 4px;
+
+  @media (max-width: 1279px) {
+    width: 366px  ;
+  }
 
   @media (max-width: 1023px) {
-    max-width: 480px;
+    width: 530px;
   }
 
   @media (max-width: 512px) {
-    max-width: 490px;
+    width: 490px;
     line-height: 13px;
-    padding-left: 0;
   }
 `;

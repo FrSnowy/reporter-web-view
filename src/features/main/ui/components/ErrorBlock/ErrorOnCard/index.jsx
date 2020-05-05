@@ -3,22 +3,30 @@ import { Container, Date, Info, BrowserIcon, PlatformIcon, Tooltip, ErrorContain
 import dayjs from 'dayjs';
 import getText from '../../../../../shared/Text';
 import Link from '../../../../../shared/Link';
+import Icon from '../../../../../shared/Icon';
 
 const platformText = getText('PLATFORM');
 const mainText = getText('MAIN');
 
 const ErrorOnCard = props => <Container>
-  {console.log(props)}
-  <Date>{dayjs(props.server_fired_at).format('DD.MM.YYYY, HH:mm')}</Date>
-  <Info>
-    <BrowserIcon browser = {props.browser.toLowerCase()}>
-      <Tooltip>{props.browser}</Tooltip>
+  <Date>
+    <BrowserIcon>
+      <Icon name = {`browser-${props.browser.name.toLowerCase()}`} />
+      <Tooltip>{props.browser.name} {props.browser.version}</Tooltip>
     </BrowserIcon>
-    <PlatformIcon platform = {props.platform.toLowerCase()}>
+    <PlatformIcon>
+      <Icon name = {`platform-${props.platform.toLowerCase()}`} />
       <Tooltip>{platformText(props.platform.toUpperCase())}</Tooltip>
     </PlatformIcon>
-    <ErrorContainer>{ props.message }</ErrorContainer>
-    <Link href = {props.url}>{mainText('WATCH_MORE')}</Link>
+    <span>{dayjs(props.server_fired_at).format('DD.MM.YYYY, HH:mm')}</span>
+    <span style = {{ marginLeft: 8 }}><Link href = {props.error.url}>{mainText('CHECK_OUT')}</Link></span>
+  </Date>
+  <Info>
+    <ErrorContainer>
+      <span>{ props.error.message }</span>
+    </ErrorContainer>
+    <Link href = {props.error.url}>{mainText('WATCH_MORE')}</Link>
+
   </Info>
 </Container>
 

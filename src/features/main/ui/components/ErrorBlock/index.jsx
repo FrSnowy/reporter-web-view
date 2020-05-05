@@ -11,12 +11,14 @@ const getTypeOfLastErrors = (listLast, listAll) => {
   const countOfAll = listAll.length;
   const koeffOfError = countOfLast / countOfAll;
 
+  if (countOfLast === 0) return 'good';
+
   if (koeffOfError <= 0.1) return 'good';
   else if (koeffOfError <= 0.4) return 'warning';
   else return 'bad';
 };
 
-const ErrorBlock = ({ pending, listLast, listAll, error }) => {
+const ErrorBlock = ({ pending, listLast, listAll }) => {
   if (pending) return null;
   return (
     <Card stretch title = 'Лента ошибок'>
@@ -37,7 +39,7 @@ const ErrorBlock = ({ pending, listLast, listAll, error }) => {
         {
           listAll
             ? <ErrorsCountBlock>
-                <ErrorsCountBlockNumber type = 'bad'>{listAll.length}</ErrorsCountBlockNumber>
+                <ErrorsCountBlockNumber type = {listAll.length === 0 ? 'good' : 'bad'}>{listAll.length}</ErrorsCountBlockNumber>
                 <ErrorsCountBlockText>
                   <div>{text('ERRORS_COUNT_TOP')}</div>
                   <div>{text('ERRORS_ALL_COUNT_BOTTOM')}</div>
@@ -47,8 +49,8 @@ const ErrorBlock = ({ pending, listLast, listAll, error }) => {
         }
       </CountBlock>
       {
-        listAll
-          ? <ErrorsList>{listAll.filter((_, i) => i < 4).map(error => <ErrorOnCard {...error} />)}</ErrorsList>
+        listAll && listAll.length > 0
+          ? <ErrorsList>{listAll.filter((_, i) => i < 4).map((error, i) => <ErrorOnCard {...error} key = {i}/>)}</ErrorsList>
           : null
       }
     </Card>

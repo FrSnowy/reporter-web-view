@@ -21,7 +21,7 @@ export const CardColumn = styled.div`
 `;
 
 export const CardsCell = styled.div`
-  width: ${props => props.wide ? 60 : 40}%;
+  width: ${props => props.wide ? 55 : 45}%;
   height: 1px;
   min-height: 400px;
   padding: 16px 24px;

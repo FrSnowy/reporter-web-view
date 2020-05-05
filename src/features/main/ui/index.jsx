@@ -2,6 +2,7 @@ import React from 'react';
 import { CardsRow, CardsCell, CardColumn } from './elements';
 import Card from '../../shared/Card';
 import ErrorBlock from './components/ErrorBlock';
+import UserBlock from './components/UsersBlock';
 
 const MainView = props => {
   return (
@@ -26,7 +27,7 @@ const MainView = props => {
         </CardsCell>
         <CardsCell wide>
           <CardColumn>
-            <Card stretch title = 'Лента посетителей'/>
+            <UserBlock />
           </CardColumn>
         </CardsCell>
       </CardsRow>

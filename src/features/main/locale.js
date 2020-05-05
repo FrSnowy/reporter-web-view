@@ -8,6 +8,9 @@ const MAIN = {
   ERRORS_ALL_COUNT_BOTTOM: {
     ru: 'за все время',
   },
+  CHECK_OUT: {
+    ru: '→'
+  },
   WATCH_MORE: {
     ru: 'Подробнее',
   },

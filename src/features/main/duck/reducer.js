@@ -1,40 +1,16 @@
 import { handleActions } from 'redux-actions';
-import { getLastErrorsAction, getAllErrorsAction } from './actions';
+import { getAllErrorsAction } from './actions';
 
 const initialState = {
   errors: {
     pending: false,
-    listLast: null,
-    listAll: null,
+    list: null,
     error: null,
   },
 };
 
 export default handleActions(
 	{
-    [getLastErrorsAction.started]: state => ({
-      ...state,
-      errors: {
-        ...state.errors,
-        pending: true,
-      }
-    }),
-    [getLastErrorsAction.success]: (state, { payload }) => ({
-      ...state,
-      errors: {
-        ...state.errors,
-        pending: false,
-        listLast: payload.listLast,
-      },
-    }),
-    [getLastErrorsAction.failure]: (state, { payload }) => ({
-      ...state,
-      errors: {
-        ...state.errors,
-        pending: false,
-        error: payload.error,
-      },
-    }),
     [getAllErrorsAction.started]: state => ({
       ...state,
       errors: {
@@ -47,7 +23,7 @@ export default handleActions(
       errors: {
         ...state.errors,
         pending: false,
-        listAll: payload.listAll,
+        list: payload.list,
       },
     }),
     [getAllErrorsAction.failure]: (state, { payload }) => ({

@@ -1,4 +1,10 @@
 const MAIN = {
+  ERRORS_CONNECTION_ERROR: {
+    ru: 'Что-то пошло не так',
+  },
+  ERRORS_BLOCK_TITLE: {
+    ru: 'Лента ошибок',
+  },
   ERRORS_COUNT_TOP: {
     ru: 'ошибок',
   },

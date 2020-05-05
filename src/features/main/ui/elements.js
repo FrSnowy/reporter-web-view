@@ -24,12 +24,24 @@ export const CardsCell = styled.div`
   width: ${props => props.wide ? 55 : 45}%;
   height: 1px;
   min-height: 400px;
-  padding: 16px 24px;
   box-sizing: border-box;
 
+  &:first-of-type {
+    padding: 16px 24px 16px 0;
+  }
+
+  &:last-of-type {
+    padding: 16px 0 16px 24px;
+  }
+
   @media (max-width: 1023px) {
-    padding: 16px 8px;
-    width: ${props => props.wide ? 55 : 45}%;
+    &:first-of-type {
+      padding: 16px 8px 16px 0;
+    }
+
+    &:last-of-type {
+      padding: 16px 0 16px 8px;
+    }
   }
 
   @media (max-width: 767px) {

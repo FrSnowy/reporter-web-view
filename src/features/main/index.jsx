@@ -12,11 +12,8 @@ const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch
 
 class MainController extends React.Component {
   componentDidMount = () => {
-    const { getLastErrors, getAllErrors } = this.props;
-    Promise.all([
-      getLastErrors(),
-      getAllErrors(),
-    ]);
+    const { getAllErrors } = this.props;
+    getAllErrors();
   }
 
   render() {

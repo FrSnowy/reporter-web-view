@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../../../../shared/Card';
 import getText from '../../../../shared/Text';
-import { CountBlock, ErrorsCountBlock, ErrorsCountBlockNumber, ErrorsCountBlockText, ErrorsList } from './elements';
+import { CountBlock, ErrorsCountBlock, ErrorsCountBlockNumber, ErrorsCountBlockText, ErrorsList, ReqErrorBlock } from './elements';
 import ErrorOnCard from './ErrorOnCard';
 
 const text = getText('MAIN');
@@ -18,10 +18,16 @@ const getTypeOfLastErrors = (listLast, listAll) => {
   else return 'bad';
 };
 
-const ErrorBlock = ({ pending, listLast, listAll }) => {
+const ErrorBlock = ({ pending, listLast, listAll, error }) => {
   if (pending) return null;
+  if (error) return (
+    <Card stretch title = {text('ERRORS_BLOCK_TITLE')} withError>
+      <ReqErrorBlock>{text('ERRORS_CONNECTION_ERROR')}<br />[{error}]</ReqErrorBlock>
+    </Card>
+  )
+
   return (
-    <Card stretch title = 'Лента ошибок'>
+    <Card stretch title = {text('ERRORS_BLOCK_TITLE')}>
       <CountBlock>
         {
           listLast && listAll

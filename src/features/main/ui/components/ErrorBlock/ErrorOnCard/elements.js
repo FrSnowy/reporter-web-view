@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   color: ${props => getColor('content-main', 75, props.theme)};
 `;
 

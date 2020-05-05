@@ -5,6 +5,7 @@ import ErrorBlock from './components/ErrorBlock';
 import UserBlock from './components/UsersBlock';
 
 const MainView = props => {
+  console.log(props);
   return (
     <>
       <CardsRow>

@@ -2,20 +2,15 @@ import dayjs from 'dayjs';
 
 export const errorBlock = state => {
   const { errors = { } } = state.main;
-  const { pending = false, list = null, error = null } = errors;
+  const { pending = false, list = null, count = { lastWeek: 0, allTime: 0 }, error = null } = errors;
 
-  let listLast = null;
-  let listAll = null;
-
-  if (list && list.length) {
-    listAll = list;
-    listLast = list.filter(error => {
-      const dateOfFire = dayjs(error.server_fired_at);
-      const currentDate = dayjs();
-
-      return dateOfFire.isAfter(currentDate.add(-8, 'day'), 'day') && dateOfFire.isBefore(currentDate.add(1, 'day'), 'day');
-    });
-  }
-
-  return { pending, listLast, listAll, error };
+  return { pending, list, count, error };
 };
+
+export const usersBlock = state => {
+  const { users = { } } = state.main;
+  const { pending = false, list = null, count = { lastWeek: 0, allTime: 0, allTimeWithError: 0 }, error = null } = users;
+
+
+  return { pending, list, count, error };
+}

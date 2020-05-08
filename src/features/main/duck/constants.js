@@ -4,8 +4,8 @@ export const FEATURE_NAME = 'main';
 
 export const actionTypes = keyMirror(
 	{
-    GET_LIST_LAST_ERRORS: null,
-    GET_LIST_ALL_ERRORS: null,
+		GET_LIST_ALL_ERRORS: null,
+		GET_LIST_ALL_USERS: null,
 	},
 	FEATURE_NAME,
 );

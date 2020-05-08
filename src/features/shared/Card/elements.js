@@ -48,3 +48,16 @@ export const CardWrapper = styled.div`
     ${CardTitle} { display: none };
   `}
 `;
+
+export const ReqErrorBlock = styled.div`
+  font-size: 16px;
+  line-height: 23px;
+  color: ${props => getColor('wrong', 100, props.theme)};
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+`;

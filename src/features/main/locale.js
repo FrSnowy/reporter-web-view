@@ -1,6 +1,9 @@
 const MAIN = {
-  ERRORS_CONNECTION_ERROR: {
-    ru: 'Что-то пошло не так',
+  CURRENT_COUNT_BOTTOM: {
+    ru: 'за последние 7 дней',
+  },
+  ALL_COUNT_BOTTOM: {
+    ru: 'за все время',
   },
   ERRORS_BLOCK_TITLE: {
     ru: 'Лента ошибок',
@@ -8,11 +11,17 @@ const MAIN = {
   ERRORS_COUNT_TOP: {
     ru: 'ошибок',
   },
-  ERRORS_CURRENT_COUNT_BOTTOM: {
-    ru: 'за последние 7 дней',
+  USERS_BLOCK_TITLE: {
+    ru: 'Лента посетителей',
   },
-  ERRORS_ALL_COUNT_BOTTOM: {
-    ru: 'за все время',
+  USERS_COUNT_TOP: {
+    ru: 'пользователя',
+  },
+  USERS_PERCENT_TOP: {
+    ru: 'получили',
+  },
+  USERS_PERCENT_BOTTOM: {
+    ru: 'ошибки',
   },
   CHECK_OUT: {
     ru: '→'

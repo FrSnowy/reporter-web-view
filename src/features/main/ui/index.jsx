@@ -5,7 +5,6 @@ import ErrorBlock from './components/ErrorBlock';
 import UserBlock from './components/UsersBlock';
 
 const MainView = props => {
-  console.log(props);
   return (
     <>
       <CardsRow>
@@ -28,7 +27,7 @@ const MainView = props => {
         </CardsCell>
         <CardsCell wide>
           <CardColumn>
-            <UserBlock />
+            <UserBlock {...props.users}/>
           </CardColumn>
         </CardsCell>
       </CardsRow>

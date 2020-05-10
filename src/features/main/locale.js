@@ -15,13 +15,22 @@ const MAIN = {
     ru: 'Лента посетителей',
   },
   USERS_COUNT_TOP: {
-    ru: 'пользователя',
+    ru: 'пользователей',
   },
   USERS_PERCENT_TOP: {
     ru: 'получили',
   },
   USERS_PERCENT_BOTTOM: {
     ru: 'ошибки',
+  },
+  USERS_ERRORS_TOOLTIP: {
+    ru: 'Ошибки',
+  },
+  USERS_STEPS_TOOLTIP: {
+    ru: 'Действия',
+  },
+  USERS_IP_ADDRESS: {
+    ru: 'IP-адрес',
   },
   CHECK_OUT: {
     ru: '→'

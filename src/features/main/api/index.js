@@ -21,7 +21,7 @@ export const getErrors = async (props = { }) => {
 };
 
 export const getUsersCount = async (props = { }) => {
-  const { onlyWithError = false, from = '', to = '' } = props;
+  const { onlyWithError = '', from = '', to = '' } = props;
   const response = await axios.get(
     `${pathes.backend}/${pathes.namespace}/visitors/count?from=${from}&to=${to}&withError=${onlyWithError}`,
     { withCredentials: true }

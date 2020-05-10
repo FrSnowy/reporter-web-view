@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-
 export const errorBlock = state => {
   const { errors = { } } = state.main;
   const { pending = false, list = null, count = { lastWeek: 0, allTime: 0 }, error = null } = errors;
@@ -12,5 +10,5 @@ export const usersBlock = state => {
   const { pending = false, list = null, count = { lastWeek: 0, allTime: 0, allTimeWithError: 0 }, error = null } = users;
 
 
-  return { pending, list, count, error };
+  return { pending, list, count , error };
 }

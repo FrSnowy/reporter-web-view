@@ -46,10 +46,10 @@ export const CardsCell = styled.div`
 
   @media (max-width: 767px) {
     width: 100%;
-    padding: 16px 24px;
+    &:first-of-type, &:last-of-type { padding: 16px 24px; }
   }
 
   @media (max-width: 512px) {
-    padding: 16px 8px;
+    &:first-of-type, &:last-of-type { padding: 16px 8px; }
   }
 `;

@@ -28,12 +28,22 @@ export const getUsersCount = async (props = { }) => {
   );
 
   return response.data;
-}
+};
 
 export const getUsers = async (props = { }) => {
   const { onlyWithError = false, from = '', to = '', limit = '' } = props;
   const response = await axios.get(
     `${pathes.backend}/${pathes.namespace}/visitors/info?from=${from}&to=${to}&withError=${onlyWithError}&limit=${limit}`,
+    { withCredentials: true }
+  );
+
+  return response.data;
+};
+
+export const getStories = async (props = { }) => {
+  const { limit = '' } = props;
+  const response = await axios.get(
+    `${pathes.backend}/${pathes.namespace}/visitors/stories?limit=${limit}`,
     { withCredentials: true }
   );
 

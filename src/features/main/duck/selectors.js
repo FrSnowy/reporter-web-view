@@ -11,4 +11,10 @@ export const usersBlock = state => {
 
 
   return { pending, list, count , error };
+};
+
+export const storiesBlock = state => {
+  const { stories = { } } = state.main;
+  const { pending = false, list = null, error = null } = stories;
+  return { pending, list, error };
 }

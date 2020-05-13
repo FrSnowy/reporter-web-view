@@ -8,7 +8,7 @@ import { UsersNumbersBlock, UsersContentBlock } from './elements';
 const text = getText('MAIN');
 
 const UserBlock = ({ pending, list, count, error }) => {
-  if (pending) return null;
+  if (pending || !list) return null;
   if (error) return <Card stretch title = {text('USERS_BLOCK_TITLE')} withError = {error} />
 
   return (

@@ -7,16 +7,18 @@ import MainView from './ui';
 const mapStateToProps = state => ({
   error: duck.selectors.errorBlock(state),
   users: duck.selectors.usersBlock(state),
+  stories: duck.selectors.storiesBlock(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch);
 
 class MainController extends React.Component {
   componentDidMount = () => {
-    const { getErrorInfo, getUsersInfo } = this.props;
+    const { getErrorInfo, getUsersInfo, getStoriesInfo } = this.props;
     Promise.all([
       getErrorInfo(),
       getUsersInfo(),
+      getStoriesInfo(),
     ]);
   }
 

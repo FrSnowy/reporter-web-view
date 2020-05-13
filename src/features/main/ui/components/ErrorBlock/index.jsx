@@ -18,7 +18,7 @@ const getTypeOfLastErrors = (lastWeek, allTime) => {
 };
 
 const ErrorBlock = ({ pending, list, count, error }) => {
-  if (pending) return null;
+  if (pending || !list) return null;
   if (error) return <Card stretch title = {text('ERRORS_BLOCK_TITLE')} withError = {error}/>
 
   return (

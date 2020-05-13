@@ -32,6 +32,12 @@ const MAIN = {
   USERS_IP_ADDRESS: {
     ru: 'IP-адрес',
   },
+  STORIES_BLOCK_TITLE: {
+    ru: 'Истории',
+  },
+  STORIES_STORY_BLOCK_TITLE: {
+    ru: 'История пользователя',
+  },
   CHECK_OUT: {
     ru: '→'
   },

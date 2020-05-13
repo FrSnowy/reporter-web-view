@@ -3,6 +3,7 @@ import { CardsRow, CardsCell, CardColumn } from './elements';
 import Card from '../../shared/Card';
 import ErrorBlock from './components/ErrorBlock';
 import UserBlock from './components/UsersBlock';
+import StoriesBlock from './components/StoriesBlock';
 
 const MainView = props => {
   return (
@@ -15,7 +16,7 @@ const MainView = props => {
         </CardsCell>
         <CardsCell>
           <CardColumn>
-            <Card stretch title = 'Истории' />
+            <StoriesBlock {...props.stories}/>
           </CardColumn>
         </CardsCell>
       </CardsRow>

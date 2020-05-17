@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '../../../utils/colors';
 
-
 export const CardTitle = styled.div`
   display: block;
   width: 100%;
@@ -60,4 +59,24 @@ export const ReqErrorBlock = styled.div`
   align-items: center;
   text-align: center;
   font-weight: bold;
+`;
+
+export const EmptyImage = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  img {
+    width: 64px;
+    height: 64px;
+  }
+
+  span {
+    color: ${props => getColor('content-main', 85, props.theme)};
+    margin-top: 16px;
+    text-align: center;
+  }
 `;

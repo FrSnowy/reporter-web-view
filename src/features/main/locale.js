@@ -11,6 +11,9 @@ const MAIN = {
   ERRORS_COUNT_TOP: {
     ru: 'ошибок',
   },
+  ERRORS_EMPTY: {
+    ru: 'Не найдено ни одной ошибки'
+  },
   USERS_BLOCK_TITLE: {
     ru: 'Лента посетителей',
   },
@@ -32,11 +35,17 @@ const MAIN = {
   USERS_IP_ADDRESS: {
     ru: 'IP-адрес',
   },
+  USERS_EMPTY: {
+    ru: 'Не найдено ни одного пользователя'
+  },
   STORIES_BLOCK_TITLE: {
     ru: 'Истории',
   },
   STORIES_STORY_BLOCK_TITLE: {
     ru: 'История пользователя',
+  },
+  STORIES_EMPTY: {
+    ru: 'Не найдено ни одной истории'
   },
   CHECK_OUT: {
     ru: '→'

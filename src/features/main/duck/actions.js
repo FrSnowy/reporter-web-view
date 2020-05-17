@@ -12,7 +12,7 @@ export const getErrorInfo = () => async dispatch => {
   try {
     const currentDate = dayjs();
     const [lastErrors, lastErrorsCount, allErrorsCount] = await Promise.all([
-      api.getErrors({ from: currentDate.add(-7, 'day').format(), to: currentDate.format(), limit: 4 }),
+      api.getErrors(),
       api.getErrorsCount({ from: currentDate.add(-7, 'day').format(), to: currentDate.format() }),
       api.getErrorsCount({ })
     ]);

@@ -4,6 +4,7 @@ import Card from '../../shared/Card';
 import ErrorBlock from './components/ErrorBlock';
 import UserBlock from './components/UsersBlock';
 import StoriesBlock from './components/StoriesBlock';
+import * as Graphics from 'react-chartjs-2';
 
 const MainView = props => {
   return (
@@ -23,7 +24,20 @@ const MainView = props => {
       <CardsRow>
         <CardsCell>
           <CardColumn>
-            <Card stretch title = 'Статистика' />
+            <Card stretch title = 'Статистика'>
+              <Graphics.Line
+                data = {{
+                  labels: ['10.05', '11.05', '12.05', '13.05', '14.05', '15.05', '16.05', '17.05'],
+                  datasets: [{
+                    data: [0, 5, 3, 1, 2, 5, 0, 10],
+                    label: 'Ошибочки'
+                  }]
+                }}
+                options = {{
+                  maintainAspectRatio: false
+                }}
+              />
+            </Card>
           </CardColumn>
         </CardsCell>
         <CardsCell wide>

@@ -4,6 +4,7 @@ import getText from '../../../../../shared/Text';
 import Icon from '../../../../../shared/Icon';
 import dayjs from 'dayjs';
 import Tooltip from '../../shared/Tooltip';
+import Link from '../../../../../shared/Link';
 
 const text = getText('MAIN')
 
@@ -17,19 +18,24 @@ const Story = ({ userID, steps = [] }) => {
     </BlockTitle>
     <StepsContainer>
       {
-        steps.map((step, i) => <StepContainer key = {i} error = {step.type === 'error'} href = {step.info.url}>
-          <StepTime>{dayjs(step.fired_at).format('DD.MM.YYYY HH:mm')}</StepTime>
-          <StepInfo error = {step.type === 'error'}>
-            <StepImage>
-              <Icon name = {step.type === 'error' ? 'warning' : 'footprint'} />
-            </StepImage>
-            <StepText>
-              {step.info.message}
-            </StepText>
-          </StepInfo>
-          <Tooltip>{step.info.message}</Tooltip>
-        </StepContainer>)
+        steps
+          .filter((_, i) => i < 4)
+          .map((step, i) => 
+            <StepContainer key = {i} error = {step.type === 'error'} href = {step.info.url}>
+              <StepTime>{dayjs(step.fired_at).format('DD.MM.YYYY HH:mm')}</StepTime>
+              <StepInfo error = {step.type === 'error'}>
+                <StepImage>
+                  <Icon name = {step.type === 'error' ? 'warning' : 'footprint'} />
+                </StepImage>
+                <StepText>
+                  {step.info.message}
+                </StepText>
+              </StepInfo>
+              <Tooltip>{step.info.message}</Tooltip>
+            </StepContainer>
+          )
       }
+      { steps.length > 4 && <Link>Далее</Link>}
     </StepsContainer>
   </Container>;
 }

@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 export const getDates = (list = []) => {
   if (!list) return null;
-  const maxDate = dayjs(list[0].server_fired_at.split('T')[0]);
+  const maxDate = dayjs();
   const arr = _.range(7).map(i => maxDate.add(-i, 'day')).reverse();
   return {
     labels: arr.map(date => date.format('DD.MM')),
@@ -13,7 +13,7 @@ export const getDates = (list = []) => {
 
 export const getErrorsData = (list = [], datesArray = []) => {
   if (!list) return null;
-  const dataByDates = { };
+  const dataByDates = { before: 0 };
 
   datesArray.forEach(date => dataByDates[date.format('DD.MM.YYYY')] = 0);
   list
@@ -21,6 +21,7 @@ export const getErrorsData = (list = [], datesArray = []) => {
     .forEach(date => {
       const formattedDate = date.format('DD.MM.YYYY');
       if (dataByDates[formattedDate] || dataByDates[formattedDate] === 0) dataByDates[formattedDate] += 1;
+      else dataByDates.before += 1;
     });
 
   return Object.keys(dataByDates).map(key => dataByDates[key]);
@@ -28,7 +29,7 @@ export const getErrorsData = (list = [], datesArray = []) => {
 
 export const getUsersData = (list = [], datesArray = []) => {
   if (!list) return null;
-  const dataByDates = { };
+  const dataByDates = { before: 0 };
 
   datesArray.forEach(date => dataByDates[date.format('DD.MM.YYYY')] = 0);
   list
@@ -36,6 +37,7 @@ export const getUsersData = (list = [], datesArray = []) => {
     .forEach(date => {
       const formattedDate = date.format('DD.MM.YYYY');
       if (dataByDates[formattedDate] || dataByDates[formattedDate] === 0) dataByDates[formattedDate] += 1;
+      else dataByDates.before += 1;
     });
 
   return Object.keys(dataByDates).map(key => dataByDates[key]);

@@ -59,6 +59,9 @@ const MAIN = {
   STAT_EMPTY: {
     ru: 'Недостаточно данных',
   },
+  STAT_LINE_BEFORE: {
+    ru: 'Ранее',
+  },
   CHECK_OUT: {
     ru: '→'
   },

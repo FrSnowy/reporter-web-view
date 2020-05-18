@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '../../../../shared/Card';
 import getText from '../../../../shared/Text';
 import * as Graphics from 'react-chartjs-2';
-import _ from 'lodash';
 import { getDates, getErrorsData, getUsersData } from './helpers';
 
 const text = getText('MAIN');
@@ -21,7 +20,7 @@ const StatBlock = ({ errors = { }, users = { } }) => {
     <Card stretch title = {text('STAT_BLOCK_TITLE')}>
       <Graphics.Line
         data = {{
-          labels: dates.labels,
+          labels: [text('STAT_LINE_BEFORE'), ...dates.labels],
           datasets: [{
             data: usersData,
             backgroundColor: 'rgba(239, 131, 24, 0.25)',

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { getColor } from '../../../../../../utils/colors';
 import Tooltip from '../../shared/Tooltip';
 

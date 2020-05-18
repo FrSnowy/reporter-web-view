@@ -34,7 +34,12 @@ const StatBlock = ({ errors = { }, users = { } }) => {
           }]
         }}
         options = {{
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: { beginAtZero: true }
+            }]
+          }
         }}
       />
     </Card>

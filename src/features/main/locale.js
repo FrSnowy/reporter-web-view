@@ -47,6 +47,18 @@ const MAIN = {
   STORIES_EMPTY: {
     ru: 'Не найдено ни одной истории'
   },
+  STAT_BLOCK_TITLE: {
+    ru: 'Статистика',
+  },
+  STAT_VISITORS: {
+    ru: 'Посетители',
+  },
+  STAT_ERRORS: {
+    ru: 'Ошибки',
+  },
+  STAT_EMPTY: {
+    ru: 'Недостаточно данных',
+  },
   CHECK_OUT: {
     ru: '→'
   },

@@ -31,7 +31,6 @@ const Story = ({ userID, steps = [] }) => {
         </StepContainer>)
       }
     </StepsContainer>
-    {console.log(steps)}
   </Container>;
 }
 

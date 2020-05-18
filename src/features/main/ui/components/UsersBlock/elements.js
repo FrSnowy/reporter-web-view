@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import NumbersBlock from '../shared/NumbersBlock';
 
 export const UsersNumbersBlock = styled(NumbersBlock)`
@@ -12,10 +12,26 @@ export const UsersNumbersBlock = styled(NumbersBlock)`
   }
 `;
 
+const showMeUp = keyframes`
+  0% {
+    top: 100%;
+    opacity: 0;
+  }
+  100%: {
+    top: 0;
+    opacity: 1;
+  }
+`;
+
 export const UsersContentBlock = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  animation: ${showMeUp} 1s;
 
   @media (max-width: 512px) {
     & > div:nth-child(3) { display: none }

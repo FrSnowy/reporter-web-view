@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Container } from '../elements';
+import { Container as SharedContainer } from '../elements';
 import { getColor } from '../../../utils/colors';
 
-export const ButtonContainer = styled(Container)`
+export const Container = styled(SharedContainer)`
   width: 100%;
   height: 40px;
   border-radius: 4px;

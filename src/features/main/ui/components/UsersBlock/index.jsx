@@ -3,7 +3,7 @@ import Card from '../../../../shared/Card';
 import getText from '../../../../shared/Text';
 import CountBlock, { TYPES } from '../shared/CountBlock';
 import UserOnCard from './UserOnCard';
-import { UsersNumbersBlock, UsersContentBlock } from './elements';
+import * as Users from './elements';
 
 const text = getText('MAIN');
 
@@ -15,7 +15,7 @@ const UserBlock = ({ pending, list, count, error }) => {
 
   return (
     <Card stretch title = {text('USERS_BLOCK_TITLE')}>
-      <UsersNumbersBlock>
+      <Users.NumbersBlock>
         <CountBlock
           type = {count.lastWeek === 0 ? TYPES.WARNING : TYPES.GOOD}
           number = {count.lastWeek}
@@ -36,14 +36,14 @@ const UserBlock = ({ pending, list, count, error }) => {
             subtitle = {text('USERS_PERCENT_BOTTOM')}
           />
         }
-      </UsersNumbersBlock>
-      <UsersContentBlock>
+      </Users.NumbersBlock>
+      <Users.ContentBlock>
         {
           list && list.length > 0
             ? list.filter((_, i) => i < 4).map((user, i) => <UserOnCard {...user} key = {i} />)
             : null
         }
-      </UsersContentBlock>
+      </Users.ContentBlock>
     </Card>
   );
 }

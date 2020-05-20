@@ -1,4 +1,5 @@
 import * as api from '../api';
+import * as errorAPI from '../../errors/api';
 import { bindActionCreators } from 'redux';
 import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
@@ -12,9 +13,9 @@ export const getErrorInfo = () => async dispatch => {
   try {
     const currentDate = dayjs();
     const [lastErrors, lastErrorsCount, allErrorsCount] = await Promise.all([
-      api.getErrors(),
-      api.getErrorsCount({ from: currentDate.add(-7, 'day').format(), to: currentDate.format() }),
-      api.getErrorsCount({ })
+      errorAPI.getErrors(),
+      errorAPI.getErrorsCount({ from: currentDate.add(-7, 'day').format(), to: currentDate.format() }),
+      errorAPI.getErrorsCount({ })
     ]);
 
     const result = { list: lastErrors.response, lastWeekCount: lastErrorsCount.response, allTimeCount: allErrorsCount.response };

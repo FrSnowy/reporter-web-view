@@ -1,11 +1,11 @@
 import React from 'react';
-import { ContainerElement, InnerElement } from './elements';
+import * as Element from './elements';
 
 const BaseContainer = ({ fullWidth = false, direction = 'column', justify = 'flex-start', children }) =>
-  <ContainerElement fullWidth = {fullWidth} direction = {direction} justify = {justify}>
-    <InnerElement>
+  <Element.Container fullWidth = {fullWidth} direction = {direction} justify = {justify}>
+    <Element.Inner>
       { children }
-    </InnerElement>
-  </ContainerElement>
+    </Element.Inner>
+  </Element.Container>
 
 export default BaseContainer;

@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
-import NumbersBlock from '../shared/NumbersBlock';
+import SharedNumbers from '../shared/NumbersBlock';
 
-export const UsersNumbersBlock = styled(NumbersBlock)`
+export const NumbersBlock = styled(SharedNumbers)`
   & > div:first-child {
     @media (max-width: 1023px) {
       display: none;
@@ -23,7 +23,7 @@ const showMeUp = keyframes`
   }
 `;
 
-export const UsersContentBlock = styled.div`
+export const ContentBlock = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Number, Text } from './elements';
+import * as Count from './elements';
 
 export const TYPES = {
   GOOD: 'good',
@@ -7,14 +7,14 @@ export const TYPES = {
   BAD: 'bad',
 };
 
-const CountBlock = ({ type, number, title, subtitle }) => <Container>
-  <Number type = {type}>
+const CountBlock = ({ type, number, title, subtitle }) => <Count.Container>
+  <Count.Number type = {type}>
     {number}
-  </Number>
-  <Text>
+  </Count.Number>
+  <Count.Text>
     <div>{title}</div>
     <div>{subtitle}</div>
-  </Text>
-</Container>
+  </Count.Text>
+</Count.Container>
 
 export default CountBlock;

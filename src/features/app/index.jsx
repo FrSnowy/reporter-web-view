@@ -11,10 +11,10 @@ import Header from '../shared/Header';
 
 const mapStateToProps = state => ({
   pending: duck.selectors.pending(state),
+  userName: duck.selectors.userName(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch);
-
 
 const checkCookieOrGoAuth = async checkFN => {
   if (window.location.href.includes('auth')) return;
@@ -48,7 +48,7 @@ class App extends React.Component {
     return (
       <AppContainer>
         <BaseContainer fullWidth>
-          <Header />
+          <Header userName = {this.props.userName}/>
           <BaseContainer>
             <BrowserRouter>
               <Switch>{ getGeneratedRoutes() }</Switch>

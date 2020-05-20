@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Container, Card } from '../../shared/elements';
+import { Container as SharedContainer, Card as SharedCard } from '../../shared/elements';
 import { getColor } from '../../../utils/colors';
 
-export const AuthContainer = styled(Container)`
+export const Container = styled(SharedContainer)`
   position: absolute;
   top: 0;
   left: 0;
@@ -25,31 +25,31 @@ export const AuthContainer = styled(Container)`
   }
 `;
 
-export const AuthIconWrapper = styled.div`
+export const IconWrapper = styled.div`
   margin-bottom: 6px;
 `;
 
-export const AuthInnerContainer = styled(Container)`
+export const InnerContainer = styled(SharedContainer)`
   width: 360px;
   flex-direction: column;
 `;
 
-export const AuthCard = styled(Card)`
+export const Card = styled(SharedCard)`
   flex-direction: column;
 `;
 
-export const AuthTitleTextContainer = styled.div`
+export const TitleTextContainer = styled.div`
   width: 100%;
   margin: 8px 0 12px;
   text-align: center;
 `;
 
-export const AuthInputWrapper = styled.div`
+export const InputWrapper = styled.div`
   width: 100%;
   margin-bottom: 8px;
 `;
 
-export const AuthButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   width: 100%;
   margin: 16px 0;
 `;

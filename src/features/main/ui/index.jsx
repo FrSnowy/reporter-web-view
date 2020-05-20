@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardsRow, CardsCell, CardColumn } from './elements';
+import * as Main from './elements';
 import ErrorBlock from './components/ErrorBlock';
 import UserBlock from './components/UsersBlock';
 import StoriesBlock from './components/StoriesBlock';
@@ -8,30 +8,30 @@ import StatBlock from './components/StatBlock';
 const MainView = props => {
   return (
     <>
-      <CardsRow>
-        <CardsCell wide>
-          <CardColumn>
+      <Main.CardsRow>
+        <Main.CardsCell wide>
+          <Main.CardColumn>
             <ErrorBlock {...props.error}/>
-          </CardColumn>
-        </CardsCell>
-        <CardsCell>
-          <CardColumn>
+          </Main.CardColumn>
+        </Main.CardsCell>
+        <Main.CardsCell>
+          <Main.CardColumn>
             <StoriesBlock {...props.stories}/>
-          </CardColumn>
-        </CardsCell>
-      </CardsRow>
-      <CardsRow>
-        <CardsCell>
-          <CardColumn>
+          </Main.CardColumn>
+        </Main.CardsCell>
+      </Main.CardsRow>
+      <Main.CardsRow>
+        <Main.CardsCell>
+          <Main.CardColumn>
             <StatBlock errors = {props.error} users = {props.users}/>
-          </CardColumn>
-        </CardsCell>
-        <CardsCell wide>
-          <CardColumn>
+          </Main.CardColumn>
+        </Main.CardsCell>
+        <Main.CardsCell wide>
+          <Main.CardColumn>
             <UserBlock {...props.users}/>
-          </CardColumn>
-        </CardsCell>
-      </CardsRow>
+          </Main.CardColumn>
+        </Main.CardsCell>
+      </Main.CardsRow>
     </>
   )
 }

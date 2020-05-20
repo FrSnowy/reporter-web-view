@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 
-export const InnerElement = styled.div`
+export const Inner = styled.div`
   width: 100%;
   display: flex;
   box-sizing: border-box;
 `;
 
-export const ContainerElement = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: ${({ direction = 'column' }) => direction};
   justify-content: ${({ justify = 'center' }) => justify};
@@ -14,20 +14,20 @@ export const ContainerElement = styled.div`
   width: ${({ fullWidth = false }) => fullWidth ? '100%' : '1280px'};
   margin: 0 auto;
 
-  ${InnerElement} {
+  ${Inner} {
     flex-direction: ${({ direction = 'column' }) => direction};
     justify-content: ${({ justify = 'center' }) => justify};
   align-items: ${({ align = 'center' }) => align};
   }
 
   ${props => !props.fullWidth && css`
-    ${InnerElement} {
+    ${Inner} {
       padding: 16px 24px;
     }
 
     @media (max-width: 1279px) {
       width: 1024px;
-      ${InnerElement} {
+      ${Inner} {
         padding: 8px 16px;
       }
     }

@@ -11,7 +11,7 @@ const showMeUp = keyframes`
   }
 `
 
-export const ErrorsList = styled.div`
+export const List = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

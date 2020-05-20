@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '../../../utils/colors';
 
-export const InputContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   position: relative;
   top: 0;
@@ -54,7 +54,7 @@ export const RedStar = styled.span`
   top: -3px;
 `;
 
-export const CustomInput = styled.input`
+export const Input = styled.input`
   width: 100%;
   height: 48px;
   font-size: 16px;

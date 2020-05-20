@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getColor } from '../../../utils/colors';
 import userImg from './assets/user.svg';
 
-export const HeaderContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   width: 100%;
   height: 56px;
@@ -89,6 +89,9 @@ export const LinkBlock = styled.div`
 
 export const UserBlock = styled.div`
   display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
   justify-content: flex-end;
   width: 36px;
   height: 36px;
@@ -107,5 +110,45 @@ export const UserBlock = styled.div`
   &:hover {
     background-color: ${props => getColor('accent-opposite', 15, props.theme)};
     border: 1px solid ${props => getColor('clear-white', 100, props.theme)};
+  }
+`;
+
+export const Dropdown = styled.div`
+  position: absolute;
+  top: 64px;
+  right: -6px;
+  width: 250px;
+  background: ${props => getColor('clear-white', 100, props.theme)};
+  box-shadow: 0 5px 5px ${props => getColor('shadow', 25, props.theme)};
+  z-index: 1000;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  transition: opacity 125ms ease-in-out;
+
+  ${props => props.visible && css`
+    opacity: 1;
+    pointer-events: all;
+  `};
+
+  ${props => !props.visible && css`
+    opacity: 0;
+    pointer-events: none;
+  `};
+
+  hr {
+    border-color: ${props => getColor('content-main', 5, props.theme)};
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 20px 10px;
+    border-color: transparent transparent ${props => getColor('clear-white', 100, props.theme)} transparent;
   }
 `;

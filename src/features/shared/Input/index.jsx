@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputContainer, CustomInput, Title, Error, RedStar } from './elements';
+import * as Elements from './elements';
 
 class Input extends React.PureComponent {
   state = {
@@ -28,16 +28,16 @@ class Input extends React.PureComponent {
     const { focus } = this.state;
   
     return (
-      <InputContainer error = {error} disabled = {disabled}>
+      <Elements.Container error = {error} disabled = {disabled}>
         { 
           title && (
-            <Title isOnTop = {focus || value !== ''} error = {error} disabled = {disabled}>
+            <Elements.Title isOnTop = {focus || value !== ''} error = {error} disabled = {disabled}>
               {title}
-              {required && <RedStar>*</RedStar>}
-            </Title>
+              {required && <Elements.RedStar>*</Elements.RedStar>}
+            </Elements.Title>
           )
         }
-        <CustomInput
+        <Elements.Input
           value = {value}
           onFocus = {this.makeFocused}
           onBlur = {this.makeBlur}
@@ -49,10 +49,10 @@ class Input extends React.PureComponent {
         />
         {
           !disabled && error && (
-            <Error>{error}</Error>
+            <Elements.Error>{error}</Elements.Error>
           )
         }
-      </InputContainer>
+      </Elements.Container>
     )
   }
 }

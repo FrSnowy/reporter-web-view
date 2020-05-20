@@ -1,6 +1,6 @@
 import React from 'react';
-import { AuthContainer, AuthInnerContainer, AuthCard, AuthTitleTextContainer, AuthInputWrapper, AuthIconWrapper, AuthButtonWrapper, RegisterLinkWrapper, ErrorContainer } from './elements';
-import { Title, Text } from '../../shared/elements';
+import * as Auth from './elements';
+import * as Shared from '../../shared/elements';
 import Input from '../../shared/Input';
 import Icon from '../../shared/Icon';
 import Button from '../../shared/Button';
@@ -10,17 +10,17 @@ import getText from '../../shared/Text';
 const text = getText('AUTH');
 
 const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInputValue, sendLoginRequest, sendRegisterRequest }) =>
-  <AuthContainer>
-    <AuthInnerContainer>
-      <Title>{text('TITLE')}</Title>
-      <AuthCard>
-        <AuthTitleTextContainer>
-          <Text>{text('LOGIN_TO_CONTINUE')}</Text>
-        </AuthTitleTextContainer>
-        <AuthIconWrapper>
+  <Auth.Container>
+    <Auth.InnerContainer>
+      <Shared.Title>{text('TITLE')}</Shared.Title>
+      <Auth.Card>
+        <Auth.TitleTextContainer>
+          <Shared.Text>{text('LOGIN_TO_CONTINUE')}</Shared.Text>
+        </Auth.TitleTextContainer>
+        <Auth.IconWrapper>
           <Icon name = 'logo' />
-        </AuthIconWrapper>
-        <AuthInputWrapper>
+        </Auth.IconWrapper>
+        <Auth.InputWrapper>
           <Input
             required
             title = {text('INPUT_LOGIN_TITLE')}
@@ -28,8 +28,8 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
             placeholder = {text('INPUT_LOGIN_PLACEHOLDER')}
             onChange = {value => changeInputValue({ login: value, password })}
           />
-        </AuthInputWrapper>
-        <AuthInputWrapper>
+        </Auth.InputWrapper>
+        <Auth.InputWrapper>
           <Input
             required
             title = {text('INPUT_PASSWORD_TITLE')}
@@ -38,26 +38,26 @@ const AuthView = ({ pending, login, password, error, isButtonEnabled, changeInpu
             placeholder = {text('INPUT_PASSWORD_PLACEHOLDER')}
             onChange = {value => changeInputValue({ login, password: value })}
           />
-        </AuthInputWrapper>
-        {error && <ErrorContainer>{error}</ErrorContainer>}
-        <AuthButtonWrapper>
+        </Auth.InputWrapper>
+        {error && <Auth.ErrorContainer>{error}</Auth.ErrorContainer>}
+        <Auth.ButtonWrapper>
           <Button
             state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}
             onClick = {() => sendLoginRequest(login, password)}
           >
             {text('SUBMIT_FORM_BUTTON')}
           </Button>
-        </AuthButtonWrapper>
-        <RegisterLinkWrapper>
+        </Auth.ButtonWrapper>
+        <Auth.RegisterLinkWrapper>
           <PseudoLink
             state = {pending ? 'disabled' : isButtonEnabled ? 'default' : 'disabled'}
             onClick = {() => sendRegisterRequest(login, password)
           }>
             {text('REGISTER_LINK')}
           </PseudoLink>
-        </RegisterLinkWrapper>
-      </AuthCard>
-    </AuthInnerContainer>
-  </AuthContainer>
+        </Auth.RegisterLinkWrapper>
+      </Auth.Card>
+    </Auth.InnerContainer>
+  </Auth.Container>
 
 export default AuthView;

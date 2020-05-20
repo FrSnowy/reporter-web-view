@@ -1,9 +1,11 @@
 import AUTH from "../../auth/locale"
 import MAIN from '../../main/locale';
+import HEADER from "../Header/locale";
 
 const TEXT = {
   AUTH,
   MAIN,
+  HEADER,
   PLATFORM: {
     DESKTOP: {
       ru: 'Персональный компьютер',

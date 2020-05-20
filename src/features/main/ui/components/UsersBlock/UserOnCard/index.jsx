@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, TopBlock, ContentBlock, UserHash, UserIP, ErrorsContainer, FootprintsContainer, Count } from './elements';
+import * as User from './elements';
 import dayjs from 'dayjs';
 import getText from '../../../../../shared/Text';
 import IconContainer from '../../shared/IconContainer';
@@ -10,8 +10,8 @@ import Link from '../../../../../shared/Link';
 const text = getText('MAIN')
 const platformText = getText('PLATFORM');
 
-const UserOnCard = props => <Container>
-  <TopBlock>
+const UserOnCard = props => <User.Container>
+  <User.TopBlock>
     <IconContainer>
       <Icon name = {`browser-${props.browser.name.toLowerCase()}`} />
       <Tooltip>{props.browser.name} {props.browser.version}</Tooltip>
@@ -25,27 +25,27 @@ const UserOnCard = props => <Container>
       <Tooltip>{props.os.name} {props.os.version}</Tooltip>
     </IconContainer>
     <div>{dayjs(props.session_start).format('DD.MM.YYYY, HH:mm')}</div>
-  </TopBlock>
-  <ContentBlock>
-    <UserHash>
+  </User.TopBlock>
+  <User.ContentBlock>
+    <User.Hash>
       {props.hash}
-    </UserHash>
-    <UserIP>
+    </User.Hash>
+    <User.IP>
       <span>{props.ip}</span>
       <Tooltip>{text('USERS_IP_ADDRESS')}</Tooltip>
-    </UserIP>
-    <ErrorsContainer>
-      <Count>{props.errors_count}</Count>
+    </User.IP>
+    <User.ErrorsContainer>
+      <User.Count>{props.errors_count}</User.Count>
       <Icon name = 'warning' />
       <Tooltip>{text('USERS_ERRORS_TOOLTIP')}</Tooltip>
-    </ErrorsContainer>
-    <FootprintsContainer>
-      <Count>{props.events_count}</Count>
+    </User.ErrorsContainer>
+    <User.FootprintsContainer>
+      <User.Count>{props.events_count}</User.Count>
       <Icon name = 'footprint' />
       <Tooltip>{text('USERS_STEPS_TOOLTIP')}</Tooltip>
-    </FootprintsContainer>
+    </User.FootprintsContainer>
   <Link href = '#'>{text('WATCH_MORE')}</Link>
-  </ContentBlock>
-</Container>
+  </User.ContentBlock>
+</User.Container>
 
 export default UserOnCard;

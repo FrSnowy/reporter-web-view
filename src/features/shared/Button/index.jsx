@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonContainer } from './elements';
+import * as Element from './elements';
 
 const STATES = {
   DEFAULT: 'default',
@@ -7,15 +7,10 @@ const STATES = {
   DISABLED: 'disabled',
 };
 
-class Button extends React.Component {
-  render() {
-    const { children, onClick = () => { }, state = STATES.DEFAULT } = this.props;
-    return (
-      <ButtonContainer onClick = {onClick} state = {state}>
-        {children}
-      </ButtonContainer>
-    )
-  }
-}
+const Button = ({ children, state = STATES.DEFAULT, onClick = () => { } }) => (
+  <Element.Container onClick = {onClick} state = {state}>
+    {children}
+  </Element.Container>
+);
 
 export default Button;

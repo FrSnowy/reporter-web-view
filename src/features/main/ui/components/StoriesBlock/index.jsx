@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../../../../shared/Card';
 import getText from '../../../../shared/Text';
 import Story from './Story';
-import { StoriesContainer } from './elements';
+import * as Stories from './elements';
 
 const text = getText('MAIN');
 
@@ -14,9 +14,9 @@ const StoriesBlock = ({ pending, list, error }) => {
 
   return (
     <Card stretch title = {text('STORIES_BLOCK_TITLE')}>
-      <StoriesContainer>
+      <Stories.Container>
         { Object.keys(list).map((userID, i) => <Story steps = {list[userID]} userID = {userID} key = {i}/>) }
-      </StoriesContainer>
+      </Stories.Container>
     </Card>
   );
 }

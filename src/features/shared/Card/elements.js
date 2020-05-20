@@ -1,17 +1,24 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '../../../utils/colors';
 
-export const CardTitle = styled.div`
+export const Title = styled.a`
   display: block;
   width: 100%;
   padding: 8px 0;
   font-size: 20px;
   line-height: 27px;
-  color: ${props => getColor('accent', 100, props.theme)};
+  color: ${props => getColor('accent', 85, props.theme)};
   box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 125ms ease-in-out;
+
+  &:hover {
+    color: ${props => getColor('accent', 100, props.theme)};
+  }
 `;
 
-export const CardInnerWrapper = styled.div`
+export const InnerWrapper = styled.div`
   width: 100%;
   height: ${props => props.withTitle ? 'calc(100% - 52px)' : '100%'};
   position: relative;
@@ -19,7 +26,7 @@ export const CardInnerWrapper = styled.div`
   left: 0;
 `;
 
-export const CardWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: ${props => props.stretch ? '100%' : '480px'};
@@ -44,7 +51,7 @@ export const CardWrapper = styled.div`
 
   ${props => props.withError && css`
     border: 1px solid ${props => getColor('wrong-dark', 100, props.theme)};
-    ${CardTitle} { display: none };
+    ${Title} { display: none };
   `}
 `;
 

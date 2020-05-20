@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../../../../shared/Card';
 import getText from '../../../../shared/Text';
-import { ErrorsList } from './elements';
+import * as Error from './elements';
 import ErrorOnCard from './ErrorOnCard';
 import CountBlock, { TYPES } from '../shared/CountBlock';
 import NumbersBlock from '../shared/NumbersBlock';
@@ -24,7 +24,7 @@ const ErrorBlock = ({ pending, list, count, error }) => {
   if (!list || list.length === 0) return <Card stretch title = {text('ERRORS_BLOCK_TITLE')} empty = {text('ERRORS_EMPTY')} />
 
   return (
-    <Card stretch title = {text('ERRORS_BLOCK_TITLE')}>
+    <Card stretch title = {text('ERRORS_BLOCK_TITLE')} link = '/errors'>
       <NumbersBlock>
           <CountBlock
             type = {getTypeOfLastErrors(count.lastWeek, count.allTime)}
@@ -41,7 +41,7 @@ const ErrorBlock = ({ pending, list, count, error }) => {
       </NumbersBlock>
       {
         list && list.length > 0
-          ? <ErrorsList>{list.filter((_, i) => i < 4).map((error, i) => <ErrorOnCard {...error} key = {i}/>)}</ErrorsList>
+          ? <Error.List>{list.filter((_, i) => i < 4).map((error, i) => <ErrorOnCard {...error} key = {i}/>)}</Error.List>
           : null
       }
     </Card>

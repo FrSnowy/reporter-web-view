@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Auth from '../features/auth';
 import Main from '../features/main';
+import ErrorsController from '../features/errors'
 
 const routes = [{
   path: '/auth',
@@ -9,6 +10,9 @@ const routes = [{
 }, {
   path: '/main',
   component: Main,
+}, {
+  path: '/errors',
+  component: ErrorsController,
 }];
 
 let generatedRoutes = [];

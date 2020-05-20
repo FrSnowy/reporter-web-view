@@ -24,7 +24,7 @@ export const ContentBlock = styled.div`
   align-items: center;
 `;
 
-export const UserHash = styled.div`
+export const Hash = styled.div`
   position: relative;
   top: 0;
   left: 0;
@@ -89,7 +89,7 @@ const BaseBottomContainer = styled(IconContainer)`
   }
 `;
 
-export const UserIP = styled(BaseBottomContainer)`
+export const IP = styled(BaseBottomContainer)`
   padding: 4px;
   width: 100px;
   border: 1px solid ${props => getColor('accent', 75, props.theme)};

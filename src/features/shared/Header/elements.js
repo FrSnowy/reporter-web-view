@@ -123,16 +123,13 @@ export const Dropdown = styled.div`
   z-index: 1000;
   box-sizing: border-box;
   padding: 16px 24px;
-  transition: opacity 125ms ease-in-out;
 
   ${props => props.visible && css`
-    opacity: 1;
-    pointer-events: all;
+    display: block;
   `};
 
   ${props => !props.visible && css`
-    opacity: 0;
-    pointer-events: none;
+    display: none;
   `};
 
   hr {

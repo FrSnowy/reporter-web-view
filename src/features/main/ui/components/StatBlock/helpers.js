@@ -17,7 +17,7 @@ export const getErrorsData = (list = [], datesArray = []) => {
 
   datesArray.forEach(date => dataByDates[date.format('DD.MM.YYYY')] = 0);
   list
-    .map(error => dayjs(error.server_fired_at.split('T')[0]))
+    .map(error => dayjs(error.fired_at.server.split('T')[0]))
     .forEach(date => {
       const formattedDate = date.format('DD.MM.YYYY');
       if (dataByDates[formattedDate] || dataByDates[formattedDate] === 0) dataByDates[formattedDate] += 1;

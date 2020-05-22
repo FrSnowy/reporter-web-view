@@ -4,6 +4,7 @@ import platformDesktop from './platform-desktop.svg';
 import osWindows from './os-windows.svg';
 import warningImg from './warning.svg';
 import footprintIMG from './footprint.svg';
+import emptyIMG from './empty.svg';
 import noImage from './no-image.svg';
 
 const icons = {
@@ -13,6 +14,7 @@ const icons = {
   'os-windows': osWindows,
   warning: warningImg,
   footprint: footprintIMG,
+  'no-content': emptyIMG,
   empty: noImage,
 };
 

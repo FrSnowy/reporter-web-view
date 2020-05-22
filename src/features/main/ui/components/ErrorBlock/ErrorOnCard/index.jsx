@@ -25,7 +25,7 @@ const ErrorOnCard = props => (
         <Icon name = {`os-${props.os.name.toLowerCase()}`} />
         <Tooltip>{props.os.name} {props.os.version}</Tooltip>
       </IconContainer>
-      <span>{dayjs(props.server_fired_at).format('DD.MM.YYYY, HH:mm')}</span>
+      <span>{dayjs(props.fired_at.server).format('DD.MM.YYYY, HH:mm')}</span>
       <span style = {{ marginLeft: 8 }}><Link href = {props.error.url}>{mainText('CHECK_OUT')}</Link></span>
     </Card.Date>
     <Card.Info>

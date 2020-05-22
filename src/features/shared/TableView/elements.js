@@ -8,7 +8,7 @@ export const Container = styled(SharedContainer)`
   width: 100%;
 `;
 
-export const Instruments = styled(SharedContainer)`
+export const LeftContainer = styled.div`
   display: flex;
   position: sticky;
   left: 0;
@@ -16,6 +16,12 @@ export const Instruments = styled(SharedContainer)`
   flex-direction: column;
   width: 264px;
   margin-right: 24px;
+`;
+
+export const Instruments = styled(SharedContainer)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: 20px 25px;
   background: ${props => getColor('clear-white', 100, props.theme)};
   border-radius: 5px;
@@ -32,6 +38,12 @@ export const InstrumentsTitle = styled.span`
   color: ${props => getColor('content-main', 85, props.theme)};
   border-bottom: 1px solid ${props => getColor('content-main', 25, props.theme)};
   padding-bottom: 8px;
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 12px;
 `;
 
 export const View = styled.div`

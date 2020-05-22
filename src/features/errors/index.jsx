@@ -15,21 +15,25 @@ const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch
 const COUNT_ON_PAGE = 10;
 
 class ErrorsController extends React.Component {
-  page = parseInt(new URL(window.location.href).searchParams.get('page'));
-  state = { maxPage: 0 };
+  state = {
+    maxPage: 0,
+    page: parseInt(new URL(window.location.href).searchParams.get('page'))
+  };
 
   componentDidMount() {
+    const { page } = this.state;
     const { getErrorsInfo, getErrorsCountInfo } = this.props;
-    if (this.page <= 1 || Number.isNaN(this.page)) this.page = 1;
-
-    Promise.all([
-      getErrorsInfo({ limit: `${(this.page - 1) * COUNT_ON_PAGE}, ${this.page * COUNT_ON_PAGE}`}),
-      getErrorsCountInfo(),
-    ]).then(([errors, count]) => this.setState({ maxPage: Math.ceil(count / COUNT_ON_PAGE) }));
+    
+    this.setState({ page: page <= 1 || Number.isNaN(page) ? 1 : page }, () => {
+      Promise.all([
+        getErrorsInfo({ limit: `${(this.state.page - 1) * COUNT_ON_PAGE}, ${this.state.page * COUNT_ON_PAGE}`}),
+        getErrorsCountInfo(),
+      ]).then(([errors, count]) => this.setState({ maxPage: Math.ceil(count / COUNT_ON_PAGE) }));
+    });
   };
 
   render() {
-    return <ErrorsView {...this.props} maxPage = {this.state.maxPage} />
+    return <ErrorsView {...this.props} maxPage = {this.state.maxPage} page = {this.state.page} />
   }
 }
 

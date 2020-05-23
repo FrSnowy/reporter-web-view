@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Step from './elements';
 import Icon from '../../../../../shared/Icon';
-import Tooltip from '../../shared/Tooltip';
+import Tooltip from '../../../../../shared/Tooltip';
 import dayjs from 'dayjs';
 
 const SingleStep = ({ type = 'error', fired_at = '', info = { } }) => (

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getColor } from '../../../../../../utils/colors';
+import { getColor } from '../../../utils/colors';
 
 export default styled.div`
   font-size: 13px;

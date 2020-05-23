@@ -1,18 +1,19 @@
 import React from 'react';
-import * as Error from './elements';
 import dayjs from 'dayjs';
-import IconContainer from '../../../../main/ui/components/shared/IconContainer';
+import IconContainer from '../../../../shared/IconContainer';
 import Icon from '../../../../shared/Icon';
-import Tooltip from '../../../../main/ui/components/shared/Tooltip';
+import Tooltip from '../../../../shared/Tooltip';
 import Link from '../../../../shared/Link';
 import PseudoLink from '../../../../shared/PseudoLink';
 import getText from '../../../../shared/Text';
+import * as TableView from '../../../../shared/TableViewElements'
+import * as ErrorView from './elements';
 
 const platformText = getText('PLATFORM');
 
-const ErrorComponent = props => <Error.Container>
-  <Error.Card actual = {dayjs(props.fired_at.server).isAfter(dayjs().add(-7, 'day'))}>
-    <Error.Icons>
+const ErrorComponent = props => <TableView.Container>
+  <TableView.Card actual = {dayjs(props.fired_at.server).isAfter(dayjs().add(-7, 'day'))}>
+    <TableView.Icons>
       <IconContainer>
         <Icon name = {`browser-${props.browser.name.toLowerCase()}`} />
         <Tooltip>{props.browser.name} {props.browser.version}</Tooltip>
@@ -25,15 +26,15 @@ const ErrorComponent = props => <Error.Container>
         <Icon name = {`os-${props.os.name.toLowerCase()}`} />
         <Tooltip>{props.os.name} {props.os.version}</Tooltip>
       </IconContainer>
-      <Error.FiredAt>
+      <TableView.Dates>
         <div><strong>По серверу:</strong> {dayjs(props.fired_at.server).format('DD.MM.YYYY, HH:mm')}</div>
         <div><strong>По клиенту:</strong> {dayjs(props.fired_at.client).format('DD.MM.YYYY, HH:mm')}</div>
-      </Error.FiredAt>
-    </Error.Icons>
-    <Error.Content>
+      </TableView.Dates>
+    </TableView.Icons>
+    <ErrorView.Content>
       {props.error.message}
-    </Error.Content>
-    <Error.Links>
+    </ErrorView.Content>
+    <TableView.Links>
       <div>
         <Link href = {props.error.url}>На страницу</Link>
         <Link>Подробнее</Link>
@@ -41,8 +42,8 @@ const ErrorComponent = props => <Error.Container>
       <div>
         <PseudoLink>Удалить</PseudoLink>
       </div>
-    </Error.Links>
-  </Error.Card>
-</Error.Container>
+    </TableView.Links>
+  </TableView.Card>
+</TableView.Container>
 
 export default ErrorComponent;

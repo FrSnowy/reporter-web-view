@@ -35,12 +35,12 @@ export const Link = styled.a`
   }
 
   ${props => props.active && css`
-    border: 1px solid ${props => getColor('accent-success', 50, props.theme)};
-    color: ${props => getColor('accent-success', 75, props.theme)};
+    border: 1px solid ${props => getColor('success', 50, props.theme)};
+    color: ${props => getColor('success-dark', 75, props.theme)};
 
     &:hover {
-      border: 1px solid ${props => getColor('accent-success', 80, props.theme)};
-      color: ${props => getColor('accent-success', 90, props.theme)};
+      border: 1px solid ${props => getColor('success', 80, props.theme)};
+      color: ${props => getColor('success-dark', 90, props.theme)};
     }
   `}
 `;

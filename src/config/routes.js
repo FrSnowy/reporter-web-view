@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Auth from '../features/auth';
 import Main from '../features/main';
 import ErrorsController from '../features/errors'
+import UsersController from '../features/users';
 
 const routes = [{
   path: '/auth',
@@ -13,6 +14,9 @@ const routes = [{
 }, {
   path: '/errors',
   component: ErrorsController,
+}, {
+  path: '/users',
+  component: UsersController,
 }];
 
 let generatedRoutes = [];

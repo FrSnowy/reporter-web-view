@@ -22,12 +22,12 @@ export const Container = styled(SharedContainer)`
   `};
 
   ${props => props.state === 'success' && css`
-    background-color: ${props => getColor('accent-success', 100, props.theme)};
+    background-color: ${props => getColor('success', 100, props.theme)};
     pointer-events: none;
   `};
 
   ${props => props.state === 'disabled' && css`
-    background-color: ${props => getColor('accent-disabled', 100, props.theme)};
+    background-color: ${props => getColor('disabled', 100, props.theme)};
     pointer-events: none;
   `};
 `;

@@ -1,42 +1,43 @@
 import React from 'react';
+import * as duck from './duck';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as duck from './duck';
-import ErrorsView from './ui';
 import withPagination from '../shared/HOCs/withPagination';
+import UsersView from './ui';
 
 const mapStateToProps = state => ({
   pending: duck.selectors.isPending(state),
-  list: duck.selectors.getErrors(state),
-  count: duck.selectors.getErrorsCount(state),
+  list: duck.selectors.getUsers(state),
+  count: duck.selectors.getUsersCount(state),
   error: duck.selectors.getRequestError(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch);
 
-class ErrorsController extends React.Component {
+class UsersController extends React.Component {
   getPageContent = () => {
-    const { page, countOnPage, getErrorsInfo, getErrorsCountInfo } = this.props;
+    const { page, countOnPage, getUsersInfo, getUsersCountInfo } = this.props;
     Promise.all([
-      getErrorsInfo({ limit: `${(page - 1) * countOnPage}, ${page * countOnPage}`}),
-      getErrorsCountInfo(),
+      getUsersInfo({ limit: `${(page - 1) * countOnPage}, ${page * countOnPage}`}),
+      getUsersCountInfo(),
     ]);
   };
 
   componentDidMount() {
     this.getPageContent();
-  }
+  };
 
   componentDidUpdate(prevProps) {
     if (prevProps.page !== this.props.page) {
       this.getPageContent();
     }
-  }
-  render() {
-    const { getErrorsInfo, getErrorsCount, pending, ...rest } = this.props;
-    if (pending) return null;
-    return <ErrorsView {...rest} />
-  }
-}
+  };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withPagination(ErrorsController));
+  render() {
+    const { getUsersInfo, getUsersCount, pending, ...rest } = this.props;
+    if (pending) return null;
+    return <UsersView {...rest} />;
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withPagination(UsersController));

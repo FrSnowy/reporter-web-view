@@ -21,6 +21,6 @@ export const LinkElement = styled.a`
 
   ${props => props.state === 'disabled' && css`
     pointer-events: none;
-    color: ${props => getColor('accent-disabled', 100, props.theme)};
+    color: ${props => getColor('disabled', 100, props.theme)};
   `};
 `;

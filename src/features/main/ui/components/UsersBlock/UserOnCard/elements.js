@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getColor } from '../../../../../../utils/colors';
-import IconContainer from '../../shared/IconContainer';
+import IconContainer from '../../../../../shared/IconContainer';
 
 export const Container = styled.div`
   display: flex;

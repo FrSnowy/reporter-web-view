@@ -4,6 +4,7 @@ import { getErrorsInfoAction, getErrorsCountAction } from './actions';
 const initialState = {
   pending: false,
   list: [],
+  error: false,
   count: 0,
 };
 
@@ -18,22 +19,24 @@ export default handleActions(
       pending: false,
       list: payload.errors,
     }),
-    [getErrorsInfoAction.failure]: state => ({
+    [getErrorsInfoAction.failure]: (state, { payload }) => ({
       ...state,
       pending: false,
+      error: payload.error,
     }),
     [getErrorsCountAction.started]: state => ({
       ...state,
       pending: true,
     }),
-    [getErrorsCountAction.success]: (state , { payload }) => ({
-      ...state,
-      pending: true,
-      count: payload.count,
-    }),
-    [getErrorsCountAction.failure]: state => ({
+    [getErrorsCountAction.success]: (state, { payload }) => ({
       ...state,
       pending: false,
+      count: payload.count,
+    }),
+    [getErrorsCountAction.failure]: (state, { payload }) => ({
+      ...state,
+      pending: false,
+      error: payload.error,
     }),
 	},
 	initialState,

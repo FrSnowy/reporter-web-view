@@ -3,6 +3,7 @@ import * as app from '../features/app/duck';
 import * as auth from '../features/auth/duck';
 import * as main from '../features/main/duck';
 import * as errors from '../features/errors/duck';
+import * as users from '../features/users/duck';
 
 export default () =>
 	combineReducers({
@@ -10,4 +11,5 @@ export default () =>
 		auth: auth.reducer,
 		main: main.reducer,
 		errors: errors.reducer,
+		users: users.reducer,
 	});

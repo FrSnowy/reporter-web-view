@@ -14,7 +14,7 @@ const UserBlock = ({ pending, list, count, error }) => {
   if (!list || list.length === 0) return <Card stretch title = {text('USERS_BLOCK_TITLE')} empty = {text('USERS_EMPTY')} />
 
   return (
-    <Card stretch title = {text('USERS_BLOCK_TITLE')}>
+    <Card stretch title = {text('USERS_BLOCK_TITLE')} link = '/users'>
       <Users.NumbersBlock>
         <CountBlock
           type = {count.lastWeek === 0 ? TYPES.WARNING : TYPES.GOOD}

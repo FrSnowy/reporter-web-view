@@ -3,17 +3,17 @@ export const isPending = state => {
   return pending;
 };
 
-export const getErrors = state => {
-  const { list = [] } = state.errors;
+export const getUsers = state => {
+  const { list = [] } = state.users;
   return list;
 };
 
-export const getErrorsCount = state => {
-  const { count = 0 } = state.errors;
+export const getUsersCount = state => {
+  const { count = 0 } = state.users;
   return count;
 };
 
 export const getRequestError = state => {
-  const { error = false } = state.errors;
+  const { error = false } = state.users;
   return error;
 };

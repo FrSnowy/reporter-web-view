@@ -46,9 +46,10 @@ class Header extends React.Component {
               </a>
             </Element.TitleBlock>
             <Element.LinkBlock>
-              <a href = '#'>{text('LINK_ERRORS')}</a>
-              <a href = '#'>{text('LINK_STORIES')}</a>
-              <a href = '#'>{text('LINK_STAT')}</a>
+              <a href = '/errors'>{text('LINK_ERRORS')}</a>
+              <a href = '/users'>{text('LINK_VISITORS')}</a>
+              <a href = '/stories'>{text('LINK_STORIES')}</a>
+              <a href = '/stat'>{text('LINK_STAT')}</a>
             </Element.LinkBlock>
             <Element.UserBlock onClick = {e => this.changeMenuVisibiltiy(!this.state.menuVisible)} id = 'user-block'>
               <Element.Dropdown visible = {this.state.menuVisible}>

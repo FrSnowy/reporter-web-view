@@ -11,6 +11,9 @@ const HEADER = {
   LINK_STAT: {
     ru: 'Статистика',
   },
+  LINK_VISITORS: {
+    ru: 'Пользователи',
+  },
   WELCOME: {
     ru: 'Привет',
   },

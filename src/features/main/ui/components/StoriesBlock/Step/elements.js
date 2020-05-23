@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Tooltip from '../../shared/Tooltip';
+import Tooltip from '../../../../../shared/Tooltip';
 import { getColor } from '../../../../../../utils/colors';
 
 export const Container = styled.a`

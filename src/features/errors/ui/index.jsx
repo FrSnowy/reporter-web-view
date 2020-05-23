@@ -2,9 +2,10 @@ import React from 'react';
 import TableView from '../../shared/TableView';
 import Error from './components/Error';
 
-const ErrorsView = ({ count, list, maxPage, page }) => <TableView
+const ErrorsView = ({ count, list, error, maxPage, page }) => <TableView
   link = '/errors'
   title = 'Ошибки'
+  error = {error}
   count = {count}
   list = {list}
   page = {page}

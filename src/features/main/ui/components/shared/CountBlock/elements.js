@@ -28,7 +28,7 @@ export const Number = styled.div`
   margin-right: 6px;
 
   ${props => props.type === 'good' && css`
-    color: ${getColor('accent-success', 100, props.theme)};
+    color: ${getColor('success', 100, props.theme)};
   `};
 
   ${props => props.type === 'warning' && css`

@@ -4,8 +4,8 @@ import dayjs from 'dayjs';
 import getText from '../../../../../shared/Text';
 import Link from '../../../../../shared/Link';
 import Icon from '../../../../../shared/Icon';
-import IconContainer from '../../shared/IconContainer';
-import Tooltip from '../../shared/Tooltip';
+import IconContainer from '../../../../../shared/IconContainer';
+import Tooltip from '../../../../../shared/Tooltip';
 
 const platformText = getText('PLATFORM');
 const mainText = getText('MAIN');

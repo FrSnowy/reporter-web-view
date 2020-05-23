@@ -24,10 +24,10 @@ const PaginationBlock = ({ page, maxPage }) => {
     <Pagination.Container>
       <Pagination.Block>
         {
-          pages.map(item => {
-            if (item === 'before') return <Pagination.Link href = {`${window.location.origin}${window.location.pathname}`}>←</Pagination.Link>
-            else if (item == 'after') return <Pagination.Link href = {`${window.location.origin}${window.location.pathname}?page=${maxPage}`}>→</Pagination.Link>
-            return <Pagination.Link active = {item === page} href = {`${window.location.origin}${window.location.pathname}?page=${item}`}>{item}</Pagination.Link>  
+          pages.map((item, i) => {
+            if (item === 'before') return <Pagination.Link key = {i} href = {`${window.location.origin}${window.location.pathname}`}>←</Pagination.Link>
+            else if (item === 'after') return <Pagination.Link key = {i} href = {`${window.location.origin}${window.location.pathname}?page=${maxPage}`}>→</Pagination.Link>
+            return <Pagination.Link key = {i} active = {item === page} href = {`${window.location.origin}${window.location.pathname}?page=${item}`}>{item}</Pagination.Link>  
           })
         }
       </Pagination.Block>

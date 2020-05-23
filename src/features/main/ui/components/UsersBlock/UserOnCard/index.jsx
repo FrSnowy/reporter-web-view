@@ -2,8 +2,8 @@ import React from 'react';
 import * as User from './elements';
 import dayjs from 'dayjs';
 import getText from '../../../../../shared/Text';
-import IconContainer from '../../shared/IconContainer';
-import Tooltip from '../../shared/Tooltip';
+import IconContainer from '../../../../../shared/IconContainer';
+import Tooltip from '../../../../../shared/Tooltip';
 import Icon from '../../../../../shared/Icon';
 import Link from '../../../../../shared/Link';
 

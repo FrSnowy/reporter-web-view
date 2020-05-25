@@ -1,4 +1,5 @@
 import * as api from '../api';
+import * as userAPI from '../../users/api';
 import { bindActionCreators } from 'redux';
 import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
@@ -20,12 +21,13 @@ export const getStories = (props = { }) => async dispatch => {
 };
 
 export const getStoriesCountAction = createAsyncAction(actionTypes.GET_ERRORS_COUNT);
-export const getStoriesCount = () => async dispatch => {
+export const getStoriesCount = (props = { }) => async dispatch => {
+  const { from = '', to  = '' } = props;
   const action = bindActionCreators(getStoriesCountAction, dispatch);
   action.started();
 
   try {
-    const count = { response: 0 };
+    const count = await userAPI.getUsersCount({ from, to });
     action.success({ count: count.response });
     return count.response;
   } catch (e) {

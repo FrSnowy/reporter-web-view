@@ -4,6 +4,7 @@ import Auth from '../features/auth';
 import Main from '../features/main';
 import ErrorsController from '../features/errors'
 import UsersController from '../features/users';
+import StoriesController from '../features/stories';
 
 const routes = [{
   path: '/auth',
@@ -17,6 +18,9 @@ const routes = [{
 }, {
   path: '/users',
   component: UsersController,
+}, {
+  path: '/stories',
+  component: StoriesController,
 }];
 
 let generatedRoutes = [];

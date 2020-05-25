@@ -11,7 +11,7 @@ const UserBlock = ({ pending, list, count, error }) => {
   if (pending) return null;
   if (error) return <Card stretch title = {text('USERS_BLOCK_TITLE')} withError = {error} />
 
-  if (!list || list.length === 0) return <Card stretch title = {text('USERS_BLOCK_TITLE')} empty = {text('USERS_EMPTY')} />
+  if (!list || list.length === 0) return <Card stretch link = '/users' title = {text('USERS_BLOCK_TITLE')} empty = {text('USERS_EMPTY')} />
 
   return (
     <Card stretch title = {text('USERS_BLOCK_TITLE')} link = '/users'>

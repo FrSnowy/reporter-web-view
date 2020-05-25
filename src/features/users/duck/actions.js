@@ -4,7 +4,7 @@ import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
 
 export const getUsersInfoAction = createAsyncAction(actionTypes.GET_USERS);
-export const getUsersInfo = (props = { }) => async dispatch => {
+export const getUsers = (props = { }) => async dispatch => {
   const { from = '', to = '', limit = '' } = props;
   const action = bindActionCreators(getUsersInfoAction, dispatch);
   action.started();
@@ -20,7 +20,7 @@ export const getUsersInfo = (props = { }) => async dispatch => {
 };
 
 export const getUsersCountAction = createAsyncAction(actionTypes.GET_ERRORS_COUNT);
-export const getUsersCountInfo = (props = { }) => async dispatch => {
+export const getUsersCount = (props = { }) => async dispatch => {
   const { from = '', to = '' } = props;
   const action = bindActionCreators(getUsersCountAction, dispatch);
   action.started();

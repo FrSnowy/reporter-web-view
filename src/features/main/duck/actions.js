@@ -1,6 +1,6 @@
-import * as api from '../api';
 import * as errorAPI from '../../errors/api';
 import * as userAPI from '../../users/api';
+import * as storiesAPI from '../../stories/api';
 import { bindActionCreators } from 'redux';
 import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
@@ -57,7 +57,7 @@ export const getStoriesInfo = () => async dispatch => {
   action.started();
 
   try {
-    const stories = await api.getStories({ limit: 2 });
+    const stories = await storiesAPI.getStories({ limit: 2 });
     action.success({ stories: stories.response });
     return stories;
   } catch (e) {

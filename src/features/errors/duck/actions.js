@@ -4,7 +4,7 @@ import { createAsyncAction } from '../../../utils/async-action-creator';
 import { actionTypes } from './constants';
 
 export const getErrorsInfoAction = createAsyncAction(actionTypes.GET_ERRORS);
-export const getErrorsInfo = (props = { }) => async dispatch => {
+export const getErrors = (props = { }) => async dispatch => {
   const { from = '', to = '', limit = '' } = props;
   const action = bindActionCreators(getErrorsInfoAction, dispatch);
   action.started();
@@ -20,7 +20,7 @@ export const getErrorsInfo = (props = { }) => async dispatch => {
 };
 
 export const getErrorsCountAction = createAsyncAction(actionTypes.GET_ERRORS_COUNT);
-export const getErrorsCountInfo = (props = { }) => async dispatch => {
+export const getErrorsCount = (props = { }) => async dispatch => {
   const { from = '', to = '' } = props;
   const action = bindActionCreators(getErrorsCountAction, dispatch);
   action.started();

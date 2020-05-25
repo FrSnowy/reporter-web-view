@@ -2,7 +2,7 @@ import React from 'react';
 import * as Story from './elements';
 import getText from '../../../../../shared/Text';
 import Link from '../../../../../shared/Link';
-import SingleStep from '../Step';
+import SingleStep from '../../../../../stories/ui/components/Step';
 
 const text = getText('MAIN')
 

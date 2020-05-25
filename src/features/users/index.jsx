@@ -16,10 +16,10 @@ const mapDispatchToProps = dispatch => bindActionCreators(duck.actions, dispatch
 
 class UsersController extends React.Component {
   getPageContent = () => {
-    const { page, countOnPage, getUsersInfo, getUsersCountInfo } = this.props;
+    const { page, countOnPage, getUsers, getUsersCount } = this.props;
     Promise.all([
-      getUsersInfo({ limit: `${(page - 1) * countOnPage}, ${page * countOnPage}`}),
-      getUsersCountInfo(),
+      getUsers({ limit: `${(page - 1) * countOnPage}, ${page * countOnPage}`}),
+      getUsersCount(),
     ]);
   };
 
@@ -34,7 +34,7 @@ class UsersController extends React.Component {
   };
 
   render() {
-    const { getUsersInfo, getUsersCount, pending, ...rest } = this.props;
+    const { getUsers, getUsersCount, pending, ...rest } = this.props;
     if (pending) return null;
     return <UsersView {...rest} />;
   };

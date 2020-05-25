@@ -21,23 +21,23 @@ const ErrorBlock = ({ pending, list, count, error }) => {
   if (pending) return null;
   if (error) return <Card stretch title = {text('ERRORS_BLOCK_TITLE')} withError = {error}/>
 
-  if (!list || list.length === 0) return <Card stretch title = {text('ERRORS_BLOCK_TITLE')} empty = {text('ERRORS_EMPTY')} />
+  if (!list || list.length === 0) return <Card stretch link = '/errors' title = {text('ERRORS_BLOCK_TITLE')} empty = {text('ERRORS_EMPTY')} />
 
   return (
     <Card stretch title = {text('ERRORS_BLOCK_TITLE')} link = '/errors'>
       <NumbersBlock>
-          <CountBlock
-            type = {getTypeOfLastErrors(count.lastWeek, count.allTime)}
-            number = {count.lastWeek}
-            title = {text('ERRORS_COUNT_TOP')}
-            subtitle = {text('CURRENT_COUNT_BOTTOM')}
-          />
-          <CountBlock
-            type = {count.allTime === 0 ? TYPES.GOOD : TYPES.BAD}
-            number = {count.allTime}
-            title = {text('ERRORS_COUNT_TOP')}
-            subtitle = {text('ALL_COUNT_BOTTOM')}
-          />
+        <CountBlock
+          type = {getTypeOfLastErrors(count.lastWeek, count.allTime)}
+          number = {count.lastWeek}
+          title = {text('ERRORS_COUNT_TOP')}
+          subtitle = {text('CURRENT_COUNT_BOTTOM')}
+        />
+        <CountBlock
+          type = {count.allTime === 0 ? TYPES.GOOD : TYPES.BAD}
+          number = {count.allTime}
+          title = {text('ERRORS_COUNT_TOP')}
+          subtitle = {text('ALL_COUNT_BOTTOM')}
+        />
       </NumbersBlock>
       {
         list && list.length > 0
